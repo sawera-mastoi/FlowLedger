@@ -19,12 +19,9 @@ To participate in the Stacks April event on Talent Protocol, ensure you meet the
 ```text
 flowledger/
 │
-├── frontend/                # UI Layer (Next.js/React)
-│   ├── components/          # Reusable UI components
-│   ├── pages/               # Application routes
-│   ├── hooks/               # Custom React hooks
-│   ├── utils/               # Utility functions (Stacks interaction)
-│   └── styles/              # Global and component styles
+├── index.html              # Main application UI
+├── style.css               # Global and component styles
+├── app.js                  # Frontend logic & Wallet integration
 │
 ├── contracts/              # Stacks Smart Contracts (Clarity)
 │   └── transactions.clar   # Core logic for ledger entries
@@ -33,8 +30,7 @@ flowledger/
 │   └── logo.png
 │
 ├── package.json            # Project dependencies
-├── README.md               # Documentation
-└── .env                    # Environment variables (API keys, etc.)
+└── README.md               # Documentation
 ```
 
 ## Recommended NPM Package Name
