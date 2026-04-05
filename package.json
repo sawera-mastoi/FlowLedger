@@ -1,0 +1,6 @@
+{
+  "name": "flowledger-dapp",
+  "version": "1.0.0",
+  "description": "FlowLedger - Daily Transaction Tracker for Stacks",
+  "private": true
+}
