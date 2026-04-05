@@ -5,7 +5,7 @@
 
 const CONTRACT_ADDRESS = 'SP3AMZ74TRAWC92ZB110E38SZB7F1T06EHZ38QMH4';
 const CONTRACT_NAME = 'transactions-v2';
-const NETWORK = 'mainnet'; // 'mainnet' or 'testnet'
+const NETWORK = 'mainnet';
 
 let userAddress = null;
 let chart = null;
@@ -19,7 +19,8 @@ const totalExpenseEl = document.getElementById('total-expense');
 const currentBalanceEl = document.getElementById('current-balance');
 
 // ─── Initialization ────────────────────────────────────────────────
-/** Initialize the FlowLedger application */`nfunction init() {
+/** Initialize the FlowLedger application */
+function init() {
   console.log('FlowLedger: Initializing...');
   connectBtn.addEventListener('click', connectWallet);
   transactionForm.addEventListener('submit', handleSubmit);
@@ -28,7 +29,8 @@ const currentBalanceEl = document.getElementById('current-balance');
 }
 
 // ─── Wallet Connection (Leather Provider) ─────────────────────────
-/** Handle wallet connection using Leather Provider */`nasync function connectWallet() {
+/** Handle wallet connection using Leather Provider */
+async function connectWallet() {
   // Check if the Leather wallet extension is installed
   if (typeof window.LeatherProvider === 'undefined' && typeof window.StacksProvider === 'undefined') {
     alert(
@@ -111,11 +113,8 @@ async function handleSubmit(e) {
       contract: `${CONTRACT_ADDRESS}.${CONTRACT_NAME}`,
       functionName: 'add-transaction',
       functionArgs: [
-        // Clarity int
-        `0x0000000000000000000000000000000000${amountMicro.toString(16).padStart(16, '0')}`,
-        // Clarity string-ascii for memo  
+        amountMicro.toString(),
         memoValue,
-        // Clarity string-ascii for tx-type
         typeValue,
       ],
       network: NETWORK,
@@ -210,13 +209,14 @@ function initChart() {
       datasets: [
         {
           data: [0, 0],
-          backgroundColor: ['#10B981', '#EF4444', '#F59E0B'],
+          backgroundColor: ['#10B981', '#EF4444'],
           borderWidth: 0,
         },
       ],
     },
     options: {
-      responsive: true, maintainAspectRatio: false,
+      responsive: true,
+      maintainAspectRatio: false,
       plugins: {
         legend: { position: 'bottom' },
       },
@@ -243,12 +243,10 @@ function updateChart() {
   chart.update();
 }
 
+// ─── Utility ──────────────────────────────────────────────────────
+function formatSTX(amount) {
+  return parseFloat(amount).toFixed(2) + ' STX';
+}
+
 // ─── Start ────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', init);
-
-// Utility to format STX
-function formatSTX(amount) { return parseFloat(amount).toFixed(2) + ' STX'; }
-
-// Helper function for centralized error reporting (TODO: implement Sentry)
-
-// End of FlowLedger Logic - Optimized for Stacks mainnet
