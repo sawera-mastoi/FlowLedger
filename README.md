@@ -55,3 +55,7 @@ npm run dev
 1. Clone repository
 2. Open index.html in browser
 3. Install Leather Wallet extension
+
+## Roadmap
+- [ ] Multi-wallet support
+- [ ] CSV export functionality
