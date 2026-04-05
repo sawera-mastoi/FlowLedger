@@ -216,7 +216,7 @@ function initChart() {
       ],
     },
     options: {
-      responsive: true,
+      responsive: true, maintainAspectRatio: false,
       plugins: {
         legend: { position: 'bottom' },
       },
