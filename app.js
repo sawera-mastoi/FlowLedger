@@ -103,6 +103,17 @@ async function handleSubmit(e) {
   const memoValue = document.getElementById('memo').value;
   const typeValue = document.getElementById('tx-type').value;
 
+  // Validate amount - must be greater than 0
+  if (!amountValue || parseFloat(amountValue) <= 0) {
+    alert('⚠️ Amount must be greater than 0 STX.');
+    return;
+  }
+
+  if (!memoValue.trim()) {
+    alert('⚠️ Please enter a memo.');
+    return;
+  }
+
   // Convert STX amount to micro-STX integer
   const amountMicro = Math.round(parseFloat(amountValue) * 1000000);
 
