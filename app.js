@@ -103,9 +103,9 @@ async function handleSubmit(e) {
   const memoValue = document.getElementById('memo').value;
   const typeValue = document.getElementById('tx-type').value;
 
-  // Validate amount - must be greater than 0
-  if (!amountValue || parseFloat(amountValue) <= 0) {
-    alert('⚠️ Amount must be greater than 0 STX.');
+  // Validate amount - allow 0 for memo-only logs
+  if (amountValue === "" || parseFloat(amountValue) < 0) {
+    alert('⚠️ Please enter a valid non-negative amount.');
     return;
   }
 
@@ -120,13 +120,27 @@ async function handleSubmit(e) {
   console.log(`Submitting ${typeValue}: ${amountValue} STX — "${memoValue}"`);
 
   try {
+    // Serialize arguments as Clarity Values (CV) in hex for Leather RPC
+    const intToHex = (val) => {
+      const hex = BigInt(val).toString(16).padStart(32, '0');
+      return '0x00' + hex; // 0x00 is Clarity TypeID for Int
+    };
+
+    const stringToHex = (str) => {
+      const hexStr = Array.from(new TextEncoder().encode(str))
+        .map(b => b.toString(16).padStart(2, '0'))
+        .join('');
+      const lenHex = str.length.toString(16).padStart(8, '0');
+      return '0x0d' + lenHex + hexStr; // 0x0d is Clarity TypeID for StringAscii
+    };
+
     const txResponse = await provider.request('stx_callContract', {
       contract: `${CONTRACT_ADDRESS}.${CONTRACT_NAME}`,
       functionName: 'add-transaction',
       functionArgs: [
-        amountMicro.toString(),
-        memoValue,
-        typeValue,
+        intToHex(amountMicro),
+        stringToHex(memoValue),
+        stringToHex(typeValue),
       ],
       network: NETWORK,
     });
