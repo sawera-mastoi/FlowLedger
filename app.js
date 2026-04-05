@@ -250,3 +250,5 @@ document.addEventListener('DOMContentLoaded', init);
 function formatSTX(amount) { return parseFloat(amount).toFixed(2) + ' STX'; }
 
 // Helper function for centralized error reporting (TODO: implement Sentry)
+
+// End of FlowLedger Logic - Optimized for Stacks mainnet
