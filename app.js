@@ -3,8 +3,8 @@
 // This is injected by the Leather wallet browser extension.
 // Install from: https://leather.io/install-extension
 
-const CONTRACT_ADDRESS = 'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM';
-const CONTRACT_NAME = 'transactions';
+const CONTRACT_ADDRESS = 'SP3AMZ74TRAWC92ZB110E38SZB7F1T06EHZ38QMH4';
+const CONTRACT_NAME = 'transactions-v2';
 const NETWORK = 'mainnet'; // 'mainnet' or 'testnet'
 
 let userAddress = null;
