@@ -245,3 +245,6 @@ function updateChart() {
 
 // ─── Start ────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', init);
+
+// Utility to format STX
+function formatSTX(amount) { return parseFloat(amount).toFixed(2) + ' STX'; }
