@@ -286,3 +286,6 @@ body {
 
 .stats-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
 .stats-card:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+
+.tx-item { transition: background-color 0.15s ease; }
+.tx-item:hover { background-color: #F1F5F9; }
