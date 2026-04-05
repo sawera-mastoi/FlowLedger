@@ -50,3 +50,8 @@ npm run dev
 
 ---
 *Built for the Stacks April Builder Challenge on Talent Protocol.*
+
+## Local Development
+1. Clone repository
+2. Open index.html in browser
+3. Install Leather Wallet extension
