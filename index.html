@@ -74,6 +74,18 @@
                     </div>
                     <button type="submit" class="btn btn-submit">Submit Transaction</button>
                 </form>
+
+                <div class="quick-log">
+                    <h3>⚡ Quick Log</h3>
+                    <div class="quick-buttons">
+                        <button class="btn btn-quick" onclick="quickLog('Coffee', '2.5', 'expense')">☕ Coffee 2.5 STX</button>
+                        <button class="btn btn-quick" onclick="quickLog('Lunch', '8', 'expense')">🍔 Lunch 8 STX</button>
+                        <button class="btn btn-quick" onclick="quickLog('Transport', '5', 'expense')">🚕 Transport 5 STX</button>
+                        <button class="btn btn-quick" onclick="quickLog('Salary', '500', 'income')">💰 Salary 500 STX</button>
+                        <button class="btn btn-quick" onclick="quickLog('Freelance', '50', 'income')">💼 Freelance 50 STX</button>
+                        <button class="btn btn-quick" onclick="quickLog('Gift', '25', 'income')">🎁 Gift 25 STX</button>
+                    </div>
+                </div>
             </div>
 
             <div class="list-section card">
@@ -87,7 +99,33 @@
                 <h2>Spending Analytics</h2>
                 <canvas id="transaction-chart"></canvas>
             </div>
+
+            <div class="lookup-section card">
+                <h2>🔍 Lookup On-Chain Transaction</h2>
+                <p class="lookup-desc">Read any transaction stored in the smart contract.</p>
+                <div class="form-group">
+                    <label for="lookup-address">Wallet Address</label>
+                    <input type="text" id="lookup-address" placeholder="SP3AMZ74TRAWC92ZB110E38SZB7F1T06EHZ38QMH4">
+                </div>
+                <div class="form-group">
+                    <label for="lookup-id">Transaction ID</label>
+                    <input type="number" id="lookup-id" placeholder="1" min="1">
+                </div>
+                <button class="btn btn-submit" onclick="lookupTransaction()">Lookup</button>
+                <div id="lookup-result" class="lookup-result"></div>
+            </div>
         </section>
+
+        <div class="contract-info card">
+            <h2>📜 Smart Contract</h2>
+            <p>This dApp is powered by a Clarity smart contract deployed on Stacks mainnet.</p>
+            <div class="contract-badge">
+                <span class="badge-label">Contract:</span>
+                <a href="https://explorer.hiro.so/txid/SP3AMZ74TRAWC92ZB110E38SZB7F1T06EHZ38QMH4.transactions-v2?chain=mainnet" target="_blank" class="badge-value">
+                    SP3AMZ...8QMH4.transactions-v2
+                </a>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">
@@ -96,7 +134,7 @@
 
     <!-- Chart.js for analytics -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- FlowLedger App (uses Leather Wallet extension provider directly) -->
+    <!-- FlowLedger App -->
     <script src="app.js"></script>
 </body>
 </html>

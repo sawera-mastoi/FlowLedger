@@ -248,5 +248,81 @@ function formatSTX(amount) {
   return parseFloat(amount).toFixed(2) + ' STX';
 }
 
+// ─── Quick Log (One-Click Transactions) ───────────────────────────
+function quickLog(memo, amount, type) {
+  if (!userAddress) {
+    alert('Please connect your wallet first!');
+    return;
+  }
+
+  // Pre-fill the form and submit
+  document.getElementById('amount').value = amount;
+  document.getElementById('memo').value = memo;
+  document.getElementById('tx-type').value = type;
+
+  // Trigger form submit
+  transactionForm.dispatchEvent(new Event('submit'));
+}
+
+// ─── Lookup On-Chain Transaction ──────────────────────────────────
+async function lookupTransaction() {
+  const address = document.getElementById('lookup-address').value.trim();
+  const txId = document.getElementById('lookup-id').value.trim();
+  const resultDiv = document.getElementById('lookup-result');
+
+  if (!address || !txId) {
+    resultDiv.innerHTML = '<p class="lookup-error">Please enter both a wallet address and transaction ID.</p>';
+    return;
+  }
+
+  resultDiv.innerHTML = '<p class="lookup-loading">🔄 Looking up on-chain data...</p>';
+
+  try {
+    // Use the Stacks API to call a read-only function
+    const apiUrl = `https://stacks-node-api.mainnet.stacks.co/v2/contracts/call-read/${CONTRACT_ADDRESS}/${CONTRACT_NAME}/get-transaction`;
+
+    const body = {
+      sender: address,
+      arguments: [
+        // principal argument (hex-encoded)
+        '0x' + Array.from(new TextEncoder().encode(address)).map(b => b.toString(16).padStart(2, '0')).join(''),
+        // uint argument
+        '0x0100000000000000' + BigInt(txId).toString(16).padStart(16, '0')
+      ]
+    };
+
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+
+    const data = await response.json();
+    console.log('Lookup result:', data);
+
+    if (data.okay && data.result) {
+      resultDiv.innerHTML = `
+        <div class="lookup-success">
+          <h4>✅ Transaction Found</h4>
+          <pre>${JSON.stringify(data.result, null, 2)}</pre>
+          <p class="lookup-note">Raw Clarity value from contract. View full details on 
+            <a href="https://explorer.hiro.so/txid/${CONTRACT_ADDRESS}.${CONTRACT_NAME}?chain=mainnet" target="_blank">Hiro Explorer</a>
+          </p>
+        </div>
+      `;
+    } else {
+      resultDiv.innerHTML = `
+        <div class="lookup-error">
+          <p>❌ No transaction found for ID #${txId} from that address.</p>
+          <p class="lookup-note">Make sure the address and ID are correct.</p>
+        </div>
+      `;
+    }
+  } catch (error) {
+    console.error('Lookup failed:', error);
+    resultDiv.innerHTML = `<p class="lookup-error">❌ Lookup failed. Check console for details.</p>`;
+  }
+}
+
 // ─── Start ────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', init);

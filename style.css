@@ -176,12 +176,14 @@ body {
     gap: 2rem;
     grid-template-areas: 
         "form list"
-        "form chart";
+        "form chart"
+        "form lookup";
 }
 
 .form-section { grid-area: form; }
 .list-section { grid-area: list; }
 .chart-section { grid-area: chart; }
+.lookup-section { grid-area: lookup; }
 
 @media (max-width: 900px) {
     .main-grid {
@@ -189,8 +191,128 @@ body {
         grid-template-areas: 
             "form"
             "list"
-            "chart";
+            "chart"
+            "lookup";
     }
+}
+
+/* Quick Log */
+.quick-log {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #E2E8F0;
+}
+
+.quick-log h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.quick-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.btn-quick {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.8rem;
+    border-radius: 8px;
+    background: #F1F5F9;
+    color: var(--text);
+    border: 1px solid #E2E8F0;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: inherit;
+}
+
+.btn-quick:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    transform: translateY(-1px);
+}
+
+/* Lookup Section */
+.lookup-desc {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.lookup-result {
+    margin-top: 1rem;
+}
+
+.lookup-success {
+    background: #ECFDF5;
+    border: 1px solid var(--income-color);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.lookup-success h4 { margin-bottom: 0.5rem; }
+.lookup-success pre {
+    font-size: 0.75rem;
+    overflow-x: auto;
+    background: white;
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.lookup-error {
+    color: var(--expense-color);
+    font-size: 0.875rem;
+}
+
+.lookup-loading {
+    color: var(--text-muted);
+}
+
+.lookup-note {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.lookup-note a {
+    color: var(--primary);
+}
+
+/* Contract Info */
+.contract-info {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.contract-info p {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.contract-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #F1F5F9;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+}
+
+.badge-label {
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.badge-value {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.badge-value:hover {
+    text-decoration: underline;
 }
 
 .card {
