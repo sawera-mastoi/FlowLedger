@@ -294,3 +294,6 @@ body {
 .nav-logo:hover { opacity: 0.9; }
 
 .btn:focus, input:focus, select:focus { outline: 2px solid var(--primary-dark); outline-offset: 2px; }
+
+input:user-invalid { border-color: var(--expense-color); }
+input:user-valid { border-color: var(--income-color); }
