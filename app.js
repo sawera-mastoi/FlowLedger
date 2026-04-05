@@ -28,7 +28,7 @@ const currentBalanceEl = document.getElementById('current-balance');
 }
 
 // ─── Wallet Connection (Leather Provider) ─────────────────────────
-async function connectWallet() {
+/** Handle wallet connection using Leather Provider */`nasync function connectWallet() {
   // Check if the Leather wallet extension is installed
   if (typeof window.LeatherProvider === 'undefined' && typeof window.StacksProvider === 'undefined') {
     alert(
