@@ -28,7 +28,7 @@
         amount: amount, 
         memo: memo, 
         tx-type: tx-type, 
-        timestamp: block-height 
+        timestamp: burn-block-height 
       }
     )
     (var-set last-id new-id)
