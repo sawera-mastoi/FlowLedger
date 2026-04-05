@@ -289,3 +289,6 @@ body {
 
 .tx-item { transition: background-color 0.15s ease; }
 .tx-item:hover { background-color: #F1F5F9; }
+
+.nav-logo { transition: opacity 0.2s; }
+.nav-logo:hover { opacity: 0.9; }
