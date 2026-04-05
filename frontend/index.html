@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowLedger | Daily Transaction Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="../public/logo.png" alt="FlowLedger Logo" class="nav-logo">
+                <span>FlowLedger</span>
+            </div>
+            <button id="connect-wallet" class="btn btn-primary">Connect Wallet</button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="dashboard-header">
+            <div class="header-main">
+                <div>
+                    <h1>Daily Ledger</h1>
+                    <p>Track your daily transitions on the Stacks blockchain.</p>
+                </div>
+                <div class="talent-link">
+                    <a href="https://talent.app" target="_blank" class="btn btn-outline">My Talent Profile</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stats-card income">
+                <h3>Total Income</h3>
+                <p id="total-income">0 STX</p>
+            </div>
+            <div class="stats-card expense">
+                <h3>Total Expenses</h3>
+                <p id="total-expense">0 STX</p>
+            </div>
+            <div class="stats-card balance">
+                <h3>Current Balance</h3>
+                <p id="current-balance">0 STX</p>
+            </div>
+        </div>
+
+        <section class="main-grid">
+            <div class="form-section card">
+                <h2>Add Transaction</h2>
+                <form id="transaction-form">
+                    <div class="form-group">
+                        <label for="amount">Amount (STX)</label>
+                        <input type="number" id="amount" name="amount" step="0.000001" required placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label for="memo">Memo</label>
+                        <input type="text" id="memo" name="memo" maxlength="50" required placeholder="Lunch, Coffee, Salary...">
+                    </div>
+                    <div class="form-group">
+                        <label for="tx-type">Type</label>
+                        <select id="tx-type" name="tx-type">
+                            <option value="income">Income</option>
+                            <option value="expense">Expense</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-submit">Submit Transaction</button>
+                </form>
+            </div>
+
+            <div class="list-section card">
+                <h2>Recent Activity</h2>
+                <div id="transaction-list" class="transaction-list">
+                    <p class="empty-msg">No transactions found. Connect wallet to view your activity.</p>
+                </div>
+            </div>
+
+            <div class="chart-section card">
+                <h2>Spending Analytics</h2>
+                <canvas id="transaction-chart"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 FlowLedger | Built for Stacks April on Talent Protocol</p>
+    </footer>
+
+    <!-- Chart.js for analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- FlowLedger App (uses Leather Wallet extension provider directly) -->
+    <script src="app.js"></script>
+</body>
+</html>
