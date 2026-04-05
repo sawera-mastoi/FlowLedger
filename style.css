@@ -297,3 +297,5 @@ body {
 
 input:user-invalid { border-color: var(--expense-color); }
 input:user-valid { border-color: var(--income-color); }
+
+@media print { .navbar, .form-section { display: none; } }
