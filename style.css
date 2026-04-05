@@ -292,3 +292,5 @@ body {
 
 .nav-logo { transition: opacity 0.2s; }
 .nav-logo:hover { opacity: 0.9; }
+
+.btn:focus, input:focus, select:focus { outline: 2px solid var(--primary-dark); outline-offset: 2px; }
