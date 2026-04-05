@@ -210,7 +210,7 @@ function initChart() {
       datasets: [
         {
           data: [0, 0],
-          backgroundColor: ['#10B981', '#EF4444'],
+          backgroundColor: ['#10B981', '#EF4444', '#F59E0B'],
           borderWidth: 0,
         },
       ],
