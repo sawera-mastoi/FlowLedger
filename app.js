@@ -248,3 +248,5 @@ document.addEventListener('DOMContentLoaded', init);
 
 // Utility to format STX
 function formatSTX(amount) { return parseFloat(amount).toFixed(2) + ' STX'; }
+
+// Helper function for centralized error reporting (TODO: implement Sentry)
