@@ -1,1 +1,114 @@
-<!-- Final Build 1.0.0 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stacks Echo | Ecosystem Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="glow-bg"></div>
+    
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="16" cy="16" r="14" stroke="#fb923c" stroke-width="2"/>
+                    <path d="M16 8L22 20H10L16 8Z" fill="#fb923c"/>
+                </svg>
+                <span>Stacks<b>Echo</b></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Overview</a></li>
+                <li><a href="#">Ecosystem</a></li>
+                <li><a href="#">Portfolio</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn">
+                    <span class="sun">☀️</span>
+                </button>
+                <button class="btn-primary">Connect Wallet</button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1>Unified Stacks Dashboard</h1>
+            <p>Monitor real-time ecosystem trends, track your assets, and explore the future of Bitcoin layers.</p>
+        </section>
+
+        <section class="dashboard-grid">
+            <div class="card glass">
+                <div class="card-header">
+                    <h3>STX Market Price</h3>
+                    <span class="badge positive">+4.2%</span>
+                </div>
+                <div class="price-val">$2.45</div>
+                <div class="chart-mini">
+                    <canvas id="priceChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card glass">
+                <div class="card-header">
+                    <h3>Portfolio Allocation</h3>
+                </div>
+                <div class="chart-donut">
+                    <canvas id="portfolioChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card glass stats-card">
+                <div class="stat-item">
+                    <label>Total Value Locked</label>
+                    <div class="val">$1.2B</div>
+                </div>
+                <div class="stat-item">
+                    <label>Active Addresses</label>
+                    <div class="val">142.5K</div>
+                </div>
+                <div class="stat-item">
+                    <label>Epoch Progress</label>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 75%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="recent-activity">
+            <div class="section-header">
+                <h2>Recent Transactions</h2>
+                <a href="#">View All</a>
+            </div>
+            <div class="activity-list glass">
+                <div class="activity-item">
+                    <div class="icon tx-sent">↑</div>
+                    <div class="tx-info">
+                        <strong>Sent STX</strong>
+                        <span>To SP2...4X9</span>
+                    </div>
+                    <div class="tx-amount negative">-150 STX</div>
+                </div>
+                <div class="activity-item">
+                    <div class="icon tx-received">↓</div>
+                    <div class="tx-info">
+                        <strong>Received ALEX</strong>
+                        <span>From Swap</span>
+                    </div>
+                    <div class="tx-amount positive">+1,200 ALEX</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Stacks Echo. Built with ❤️ for the Stacks Community.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
