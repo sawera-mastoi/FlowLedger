@@ -1,1 +1,1 @@
-* { margin: 0; padding: 0; box-sizing: border-box; } body { font-family: sans-serif; background: #0f172a; color: white; }
+body { background: #0f172a; color: white; } #navbar { display: flex; justify-content: space-between; padding: 20px 10%; background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); } .logo { font-weight: bold; color: #fb923c; } .links { display: flex; list-style: none; gap: 20px; }
