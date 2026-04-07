@@ -140,9 +140,9 @@ body {
 /* Stats Cards */
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1rem;
 }
 
 .stats-card {
@@ -169,18 +169,18 @@ body {
 .stats-card.expense p { color: var(--expense-color); }
 .stats-card.balance p { color: var(--secondary); }
 
-/* Main Grid */
+/* Main Grid - Aggressive 3-Column Layout */
 .main-grid {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 2rem;
+    grid-template-columns: 320px 1fr 340px;
+    gap: 0.75rem;
+    align-items: start;
     grid-template-areas: 
-        "form list"
-        "form chart"
-        "form lookup";
+        "form list chart"
+        "form list lookup";
 }
 
-.form-section { grid-area: form; }
+.form-section { grid-area: form; position: sticky; top: 85px; }
 .list-section { grid-area: list; }
 .chart-section { grid-area: chart; }
 .lookup-section { grid-area: lookup; }
@@ -317,9 +317,10 @@ body {
 
 .card {
     background: var(--card-bg);
-    padding: 1.5rem;
-    border-radius: var(--radius);
+    padding: 1rem;
+    border-radius: 8px;
     box-shadow: var(--shadow);
+    border: 1px solid #F1F5F9;
 }
 
 .card h2 {

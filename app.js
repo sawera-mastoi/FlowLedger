@@ -18,6 +18,7 @@ const transactionList = document.getElementById('transaction-list');
 const totalIncomeEl = document.getElementById('total-income');
 const totalExpenseEl = document.getElementById('total-expense');
 const currentBalanceEl = document.getElementById('current-balance');
+const totalFeesEl = document.getElementById('total-fees');
 
 // ─── Initialization ────────────────────────────────────────────────
 function init() {
@@ -166,16 +167,12 @@ function updateStats() {
   totalIncomeEl.innerText = sdk.formatSTX(income);
   totalExpenseEl.innerText = sdk.formatSTX(expense);
   currentBalanceEl.innerText = sdk.formatSTX(income - expense);
+  if (totalFeesEl) totalFeesEl.innerText = '0.00 STX'; // Default for now
 }
 
 function loadTransactions() {
-  // Load mock data or on-chain history if implemented in SDK
-  const mockData = [
-    { memo: 'Talent Protocol Reward', amount: '100', type: 'income', date: '4/5/2026' },
-    { memo: 'Coffee', amount: '2.5', type: 'expense', date: '4/6/2026' },
-  ];
-
-  mockData.forEach((tx) => addTransactionToList(tx));
+  // Always start with a clean state - no more mock data to avoid "glitches"
+  transactionList.innerHTML = '<p class="empty-msg">No transactions found. Connect wallet to view your history.</p>';
   updateStats();
   updateChart();
 }
