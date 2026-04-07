@@ -1,1 +1,1 @@
-console.log('Stacks Echo Initialized');
+const ctx = document.getElementById('myChart'); if(ctx) { new Chart(ctx, { type: 'doughnut', data: { labels: ['STX', 'BTC', 'ALEX'], datasets: [{ data: [60, 30, 10], backgroundColor: ['#fb923c', '#f59e0b', '#38bdf8'] }] } }); }
