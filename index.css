@@ -1,1 +1,1 @@
-#hero { height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; } .btn-primary { padding: 12px 24px; background: #fb923c; border: none; border-radius: 8px; color: white; cursor: pointer; transition: 0.3s; } .btn-primary:hover { transform: scale(1.05); background: #f97316; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 40px 10%; } .card { background: rgba(255,255,255,0.05); padding: 30px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); }
