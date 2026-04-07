@@ -2,5 +2,9 @@
   "name": "flowledger-dapp",
   "version": "1.0.0",
   "description": "FlowLedger - Daily Transaction Tracker for Stacks",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "@earnwithalee/stacksrank-sdk": "^1.0.0",
+    "@earnwithalee/flowledger-sdk": "file:./packages/flowledger-sdk"
+  }
 }

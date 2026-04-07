@@ -29,7 +29,7 @@ body {
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1rem 1.5rem;
 }
 
 /* Navbar */
@@ -106,7 +106,7 @@ body {
 
 /* Dashboard Header */
 .dashboard-header {
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .header-main {
@@ -141,8 +141,8 @@ body {
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .stats-card {
@@ -198,8 +198,8 @@ body {
 
 /* Quick Log */
 .quick-log {
-    margin-top: 2rem;
-    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
     border-top: 1px solid #E2E8F0;
 }
 
@@ -317,7 +317,7 @@ body {
 
 .card {
     background: var(--card-bg);
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
 }
@@ -395,7 +395,7 @@ body {
 /* Footer */
 .footer {
     text-align: center;
-    padding: 3rem 0;
+    padding: 2rem 0;
     color: var(--text-muted);
     font-size: 0.875rem;
 }

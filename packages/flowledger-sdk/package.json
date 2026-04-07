@@ -1,0 +1,22 @@
+{
+  "name": "@earnwithalee/flowledger-sdk",
+  "version": "1.0.0",
+  "description": "Official SDK for interacting with FlowLedger smart contracts on the Stacks blockchain.",
+  "main": "index.js",
+  "browser": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "stacks",
+    "clarity",
+    "blockchain",
+    "ledger",
+    "flowledger"
+  ],
+  "author": "earnwithalee",
+  "license": "MIT",
+  "peerDependencies": {
+    "@earnwithalee/stacksrank-sdk": "^1.0.0"
+  }
+}
