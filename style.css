@@ -36,9 +36,7 @@ body {
 .navbar {
     background-color: var(--secondary);
     color: white;
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
+    padding: 0.5rem 0;
     z-index: 100;
 }
 
@@ -180,7 +178,7 @@ body {
         "form list lookup";
 }
 
-.form-section { grid-area: form; position: sticky; top: 85px; }
+.form-section { grid-area: form; }
 .list-section { grid-area: list; }
 .chart-section { grid-area: chart; }
 .lookup-section { grid-area: lookup; }

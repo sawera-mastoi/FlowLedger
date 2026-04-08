@@ -155,8 +155,10 @@ function updateStats() {
 
   const items = transactionList.querySelectorAll('.tx-item');
   items.forEach((item) => {
-    const amountText = item.querySelector('.tx-amount').innerText;
-    const amount = parseFloat(amountText.replace(/[+\- STX]/g, ''));
+    const amountNode = item.querySelector('.tx-amount');
+    if (!amountNode) return;
+    const amountText = amountNode.textContent ? amountNode.textContent.trim() : '';
+    const amount = parseFloat(amountText.replace(/[+\- STX\s]/g, ''));
     if (amountText.startsWith('+')) {
       income += amount;
     } else {
@@ -210,8 +212,10 @@ function updateChart() {
 
   const items = transactionList.querySelectorAll('.tx-item');
   items.forEach((item) => {
-    const amountText = item.querySelector('.tx-amount').innerText;
-    const amount = parseFloat(amountText.replace(/[+\- STX]/g, ''));
+    const amountNode = item.querySelector('.tx-amount');
+    if (!amountNode) return;
+    const amountText = amountNode.textContent ? amountNode.textContent.trim() : '';
+    const amount = parseFloat(amountText.replace(/[+\- STX\s]/g, ''));
     if (amountText.startsWith('+')) {
       income += amount;
     } else {
@@ -264,7 +268,8 @@ function quickLog(memo, amount, type) {
   document.getElementById('amount').value = amount;
   document.getElementById('memo').value = memo;
   document.getElementById('tx-type').value = type;
-  transactionForm.dispatchEvent(new Event('submit'));
+  const evt = new Event('submit', { cancelable: true, bubbles: true });
+  transactionForm.dispatchEvent(evt);
 }
 
 // ─── Start ───────────────────────────────────────────────────────
