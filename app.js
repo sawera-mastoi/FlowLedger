@@ -9,7 +9,7 @@ const sdk = new FlowLedgerSDK({
 });
 
 let userAddress = null;
-let chart = null;
+
 
 // DOM Elements
 const connectBtn = document.getElementById('connect-wallet');
@@ -25,7 +25,7 @@ function init() {
   console.log('FlowLedger: Initialized with SDK');
   connectBtn.addEventListener('click', connectWallet);
   transactionForm.addEventListener('submit', handleSubmit);
-  initChart();
+
 }
 
 // ─── Wallet Connection ───────────────────────────────────────────
@@ -112,7 +112,7 @@ async function handleSubmit(e) {
       date: new Date().toLocaleDateString(),
     });
     updateStats();
-    updateChart();
+
     transactionForm.reset();
   } catch (error) {
     console.error('Contract call failed:', error);
@@ -176,56 +176,9 @@ function loadTransactions() {
   // Always start with a clean state - no more mock data to avoid "glitches"
   transactionList.innerHTML = '<p class="empty-msg">No transactions found. Connect wallet to view your history.</p>';
   updateStats();
-  updateChart();
+
 }
 
-// ─── Chart.js ─────────────────────────────────────────────────────
-function initChart() {
-  const canvas = document.getElementById('transaction-chart');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  chart = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-      labels: ['Income', 'Expenses'],
-      datasets: [
-        {
-          data: [0, 0],
-          backgroundColor: ['#10B981', '#EF4444'],
-          borderWidth: 0,
-        },
-      ],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { position: 'bottom' },
-      },
-    },
-  });
-}
-
-function updateChart() {
-  let income = 0;
-  let expense = 0;
-
-  const items = transactionList.querySelectorAll('.tx-item');
-  items.forEach((item) => {
-    const amountNode = item.querySelector('.tx-amount');
-    if (!amountNode) return;
-    const amountText = amountNode.textContent ? amountNode.textContent.trim() : '';
-    const amount = parseFloat(amountText.replace(/[+\- STX\s]/g, ''));
-    if (amountText.startsWith('+')) {
-      income += amount;
-    } else {
-      expense += amount;
-    }
-  });
-
-  chart.data.datasets[0].data = [income, expense];
-  chart.update();
-}
 
 // ─── Lookup On-Chain ──────────────────────────────────────────
 async function lookupTransaction() {

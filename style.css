@@ -174,13 +174,11 @@ body {
     gap: 0.75rem;
     align-items: start;
     grid-template-areas: 
-        "form list chart"
         "form list lookup";
 }
 
 .form-section { grid-area: form; }
 .list-section { grid-area: list; }
-.chart-section { grid-area: chart; }
 .lookup-section { grid-area: lookup; }
 
 @media (max-width: 900px) {
@@ -189,7 +187,6 @@ body {
         grid-template-areas: 
             "form"
             "list"
-            "chart"
             "lookup";
     }
 }
