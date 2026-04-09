@@ -1,11 +1,14 @@
-﻿{
+{
   "name": "flowledger-dapp",
   "version": "1.0.0",
   "description": "FlowLedger - Daily Transaction Tracker for Stacks",
   "private": true,
+  "scripts": {
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
   "dependencies": {
     "@earnwithalee/stacksrank-sdk": "^1.0.0",
     "@earnwithalee/flowledger-sdk": "file:./packages/flowledger-sdk"
   }
 }
-
