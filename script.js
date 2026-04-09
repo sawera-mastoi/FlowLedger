@@ -108,3 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 });
+
+// Set current year
+if (document.getElementById("year")) {
+    document.getElementById("year").textContent = new Date().getFullYear();
+}
