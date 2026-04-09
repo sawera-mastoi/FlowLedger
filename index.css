@@ -103,6 +103,7 @@ body {
     -webkit-text-fill-color: transparent;
     margin-bottom: 1.5rem;
     letter-spacing: -2px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
 
 .hero p {
