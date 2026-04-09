@@ -8,6 +8,9 @@
     --text-muted: #94a3b8;
     --glass: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.1);
+    --success: #4ade80;
+    --danger: #f87171;
+    --warning: #f59e0b;
 }
 
 @keyframes glow {
