@@ -18,7 +18,7 @@
 
 - **HTML5**: For semantic structure and SEO optimization.
 - **Vanilla CSS**: Premium styling with glassmorphism, gradients, and custom micro-animations.
-- **JavaScript (ES6+)**: Core application logic and interaction handling.
+- **JavaScript (ES6+)**: Core application logic, Local Storage handling, and Interactions.
 - **Chart.js**: High-performance charting and data visualization.
 - **Google Fonts**: Inter & Outfit for clean typography.
 
