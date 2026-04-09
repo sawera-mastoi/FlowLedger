@@ -9,7 +9,7 @@
 - **🚀 Real-time Analytics**: Monitor STX price movements and ecosystem TVL with interactive area charts.
 - **📊 Portfolio Visualization**: High-fidelity donut charts powered by **Chart.js** for clear asset distribution tracking.
 - **💎 Glassmorphism UI**: A cutting-edge, responsive design with smooth animations and a premium look.
-- **🌗 Theme Toggle**: Fully functional Dark and Light modes with persistent state and optimized color palettes.
+- **🌗 Theme Toggle**: Fully functional Dark and Light modes with persistent state via localStorage and optimized color palettes.
 - **📜 Transaction History**: Elegant transaction log for tracking recent activities across the Stacks blockchain.
 
 ---
