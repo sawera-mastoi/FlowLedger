@@ -1,0 +1,14 @@
+﻿{
+  "name": "FlowLedger",
+  "short_name": "FlowLedger",
+  "icons": [
+    {
+      "src": "/public/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#FF5A1F",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}
