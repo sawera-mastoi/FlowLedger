@@ -188,8 +188,8 @@ body {
     font-size: 1.25rem;
 }
 
-.tx-sent { color: #f87171; }
-.tx-received { color: #4ade80; }
+.tx-sent { color: var(--danger); }
+.tx-received { color: var(--success); }
 
 .activity-item strong { display: block; font-size: 1.1rem; }
 .activity-item span { color: var(--text-muted); font-size: 0.9rem; }
