@@ -7,6 +7,11 @@
 
 A lightweight dApp to track daily expenses/income and store transaction summaries on-chain via Stacks.
 
+## Table of Contents
+- [Requirements](#stacks-april-event-requirements)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+
 ## Stacks April Event Requirements
 
 To participate in the Stacks April event on Talent Protocol, ensure you meet the following:
@@ -62,4 +67,5 @@ npm run dev
 ## Roadmap
 - [ ] Multi-wallet support
 - [ ] CSV export functionality
+
 
