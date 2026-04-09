@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize theme based on user preference
     const themeBtn = document.getElementById('theme-toggle');
     const body = document.body;
-    let isDark = true;
+    let isDark = localStorage.getItem("theme") ? localStorage.getItem("theme") === "dark" : true;
+    if(!isDark) body.classList.add("light-mode");
+    themeBtn.innerHTML = isDark ? '<span class="sun">☀️</span>' : '<span class="moon">🌙</span>';
 
     themeBtn.addEventListener('click', () => {
         isDark = !isDark;
