@@ -1,4 +1,7 @@
-# FlowLedger 🚀
+﻿# FlowLedger ðŸš€
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
 ![FlowLedger Logo](public/logo.png)
 
@@ -18,19 +21,19 @@ To participate in the Stacks April event on Talent Protocol, ensure you meet the
 
 ```text
 flowledger/
-│
-├── index.html              # Main application UI
-├── style.css               # Global and component styles
-├── app.js                  # Frontend logic & Wallet integration
-│
-├── contracts/              # Stacks Smart Contracts (Clarity)
-│   └── transactions.clar   # Core logic for ledger entries
-│
-├── public/                 # Static assets (Logo, Favicons)
-│   └── logo.png
-│
-├── package.json            # Project dependencies
-└── README.md               # Documentation
+â”‚
+â”œâ”€â”€ index.html              # Main application UI
+â”œâ”€â”€ style.css               # Global and component styles
+â”œâ”€â”€ app.js                  # Frontend logic & Wallet integration
+â”‚
+â”œâ”€â”€ contracts/              # Stacks Smart Contracts (Clarity)
+â”‚   â””â”€â”€ transactions.clar   # Core logic for ledger entries
+â”‚
+â”œâ”€â”€ public/                 # Static assets (Logo, Favicons)
+â”‚   â””â”€â”€ logo.png
+â”‚
+â”œâ”€â”€ package.json            # Project dependencies
+â””â”€â”€ README.md               # Documentation
 ```
 
 ## Recommended NPM Package Name
@@ -59,3 +62,4 @@ npm run dev
 ## Roadmap
 - [ ] Multi-wallet support
 - [ ] CSV export functionality
+
