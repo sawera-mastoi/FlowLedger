@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Update Chart colors if needed
         updateCharts(isDark);
+        localStorage.setItem("theme", isDark ? "dark" : "light");
     });
 
     // Price Chart (Mini Area Chart)
