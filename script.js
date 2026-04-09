@@ -1,4 +1,5 @@
 // Stacks Echo | Dashboard Logic
+"use strict";
 
 document.addEventListener('DOMContentLoaded', () => {
     // Theme Toggle Logic
