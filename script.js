@@ -2,6 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // Theme Toggle Logic
+    // Initialize theme based on user preference
     const themeBtn = document.getElementById('theme-toggle');
     const body = document.body;
     let isDark = true;
