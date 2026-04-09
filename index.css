@@ -225,3 +225,8 @@ body {
     background: rgba(255, 255, 255, 0.02);
     cursor: pointer;
 }
+
+.btn-primary:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
