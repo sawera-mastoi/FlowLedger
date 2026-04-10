@@ -1,0 +1,43 @@
+{
+  "name": "stacks-tue",
+  "version": "1.0.0",
+  "description": "Stacks Echo — A premium, high-performance dashboard for the Stacks ecosystem. Monitor real-time market trends, track portfolio allocations, and explore Bitcoin's smart contract layers.",
+  "main": "script.js",
+  "scripts": {
+    "start": "npx live-server --port=3000",
+    "generate": "node generate_commits.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sawera-mastoi/stacks-tue.git"
+  },
+  "keywords": [
+    "stacks",
+    "stx",
+    "blockchain",
+    "dashboard",
+    "defi",
+    "web3",
+    "clarity",
+    "bitcoin",
+    "chart.js",
+    "stacksrank",
+    "ecosystem"
+  ],
+  "author": "earnwithalee <earnwithalee@gmail.com>",
+  "license": "MIT",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sawera-mastoi/stacks-tue/issues"
+  },
+  "homepage": "https://github.com/sawera-mastoi/stacks-tue#readme",
+  "dependencies": {
+    "@earnwithalee/stacksrank-sdk": "^1.0.0",
+    "@stacks/connect": "^8.2.6",
+    "@stacks/network": "^7.3.1",
+    "@stacks/transactions": "^7.4.0",
+    "chart.js": "^4.5.1",
+    "stacks-echo-kit": "^1.0.0"
+  }
+}
