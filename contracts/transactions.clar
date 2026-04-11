@@ -40,6 +40,7 @@
 ;; Read-only functions
 
 ;; Get a specific transaction
+;; @desc Query historical map record by user and ID
 (define-read-only (get-transaction (user principal) (id uint))
   (map-get? transactions { user: user, tx-id: id })
 )
