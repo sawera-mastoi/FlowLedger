@@ -38,6 +38,7 @@
 )
 
 ;; Get the token symbol
+;; @desc Resolve token symbol metadata
 (define-read-only (get-symbol)
   (ok "STKN")
 )
