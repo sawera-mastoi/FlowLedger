@@ -21,6 +21,7 @@
 )
 
 ;; Mint new tokens (owner only)
+;; @desc Maintainer token mint handler
 (define-public (mint (amount uint) (recipient principal))
   (begin
     (asserts! (is-eq tx-sender contract-owner) err-owner-only)
