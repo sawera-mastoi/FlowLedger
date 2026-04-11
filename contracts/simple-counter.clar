@@ -6,6 +6,7 @@
 ;; Public functions
 
 ;; Increment the counter
+;; @desc Increment public counter state
 (define-public (increment)
   (begin
     (var-set counter (+ (var-get counter) u1))
