@@ -15,6 +15,7 @@
 )
 
 ;; Decrement the counter
+;; @desc Decrement public counter state
 (define-public (decrement)
   (begin
     (if (> (var-get counter) u0)
