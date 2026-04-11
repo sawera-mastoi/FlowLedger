@@ -12,6 +12,9 @@ const kit = require('stacks-echo-kit');
  * @param {number} [end=5] - Characters at end.
  * @returns {string} The truncated address (e.g. SP...9XYZ).
  */
+/**
+ * Wrapper that overrides start and end truncation logic
+ */
 function truncateAddress(address, start = 5, end = 5) {
     return kit.truncateAddress(address, start, end);
 }
