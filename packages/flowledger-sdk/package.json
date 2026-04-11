@@ -12,7 +12,8 @@
     "clarity",
     "blockchain",
     "ledger",
-    "flowledger"
+    "flowledger",
+    "web3"
   ],
   "author": "earnwithalee",
   "license": "MIT",
