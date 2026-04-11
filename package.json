@@ -8,7 +8,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@earnwithalee/stacksrank-sdk": "^1.0.0",
-    "@earnwithalee/flowledger-sdk": "file:./packages/flowledger-sdk"
+    "@earnwithalee/flowledger-sdk": "file:./packages/flowledger-sdk",
+    "stacks-echo-kit": "^1.0.0"
   }
 }

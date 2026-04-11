@@ -1,10 +1,10 @@
 /**
  * FlowLedger SDK
  * Official SDK for interacting with FlowLedger smart contracts.
- * Relies on @earnwithalee/stacksrank-sdk for underlying Clarity operations.
+ * Uses stacks-echo-kit for utility functions (address formatting, STX conversion, etc.)
  */
 
-const { encoding, wallet, api } = require('@earnwithalee/stacksrank-sdk');
+const kit = require('stacks-echo-kit');
 
 class FlowLedgerSDK {
   constructor(config = {}) {
@@ -18,11 +18,16 @@ class FlowLedgerSDK {
    * @returns {Promise<string>} The connected STX address.
    */
   async connect() {
-    const { available } = wallet.detectWallet();
-    if (!available) {
+    const provider = (typeof window !== 'undefined') && (window.LeatherProvider || window.StacksProvider);
+    if (!provider) {
       throw new Error('Stacks wallet not detected. Please install Leather wallet.');
     }
-    return await wallet.connectWallet();
+    const response = await provider.request('getAddresses');
+    const stxAddress = response.result.addresses.find(
+      (a) => a.symbol === 'STX' || a.type === 'stacks'
+    );
+    if (!stxAddress) throw new Error('No STX address found in wallet.');
+    return stxAddress.address;
   }
 
   /**
@@ -34,22 +39,24 @@ class FlowLedgerSDK {
    * @returns {Promise<Object>} The transaction broadcast response.
    */
   async addTransaction({ amountSTX, memo, type }) {
-    // Convert STX to micro-STX (uint)
-    const amountMicro = Math.round(parseFloat(amountSTX) * 1000000);
+    const provider = (typeof window !== 'undefined') && (window.LeatherProvider || window.StacksProvider);
+    if (!provider) throw new Error('Wallet not available');
 
-    // Encode arguments using stacksrank-sdk
-    const args = [
-      encoding.encodeInt(amountMicro),
-      encoding.encodeStringAscii(memo),
-      encoding.encodeStringAscii(type)
-    ];
+    // Use stacks-echo-kit for STX→microSTX conversion
+    const amountMicro = kit.stxToMicro(amountSTX);
 
-    return await wallet.callContract({
+    const response = await provider.request('stx_callContract', {
       contract: `${this.contractAddress}.${this.contractName}`,
       functionName: 'add-transaction',
-      functionArgs: args,
-      network: this.network
+      functionArgs: [
+        this._serializeInt(amountMicro),
+        this._serializeStringAscii(memo),
+        this._serializeStringAscii(type),
+      ],
+      network: this.network,
     });
+
+    return response.result;
   }
 
   /**
@@ -59,53 +66,95 @@ class FlowLedgerSDK {
    * @returns {Promise<Object|null>} The transaction data or null.
    */
   async getTransaction(userAddress, txId) {
-    const result = await api.readContract({
-      contractAddress: this.contractAddress,
-      contractName: this.contractName,
-      functionName: 'get-transaction',
-      functionArgs: [
-        encoding.encodePrincipal(userAddress),
-        encoding.encodeUint(txId)
-      ],
-      network: this.network
-    });
+    const apiUrl = kit.buildApiUrl(
+      `/v2/contracts/call-read/${this.contractAddress}/${this.contractName}/get-transaction`,
+      this.network
+    );
 
-    return result;
+    try {
+      const res = await fetch(apiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          sender: userAddress,
+          arguments: [
+            this._serializeStringAscii(userAddress),
+            this._serializeInt(parseInt(txId)),
+          ],
+        }),
+      });
+      const data = await res.json();
+      if (data.okay && data.result) {
+        return { memo: `Transaction #${txId}`, raw: data.result };
+      }
+      return null;
+    } catch (err) {
+      console.error('getTransaction error:', err);
+      return null;
+    }
   }
 
   /**
-   * Get the last transaction ID from the contract.
-   * @returns {Promise<number>} The last ID.
+   * Get the user's STX balance.
+   * @param {string} address - Stacks address.
+   * @returns {Promise<string>} Balance in STX.
    */
-  async getLastId() {
-    const result = await api.readContract({
-      contractAddress: this.contractAddress,
-      contractName: this.contractName,
-      functionName: 'get-last-id',
-      functionArgs: [],
-      network: this.network
-    });
-    
-    // Result handling depends on api.readContract's return format (assuming it extracts the value)
-    return result;
+  async getBalance(address) {
+    const apiUrl = kit.buildApiUrl(`/v2/accounts/${address}/balances`, this.network);
+    const res = await fetch(apiUrl);
+    const data = await res.json();
+    const microBalance = parseInt(data.stx.balance);
+    return kit.microToStx(microBalance).toFixed(2);
   }
 
   /**
-   * Format an address for short display.
-   * @param {string} address 
+   * Format an address for short display using stacks-echo-kit.
+   * @param {string} address
    * @returns {string} Shortened address.
    */
   formatAddress(address) {
-    return wallet.formatAddress(address);
+    return kit.truncateAddress(address, 6, 4);
   }
 
   /**
-   * Format STX amount.
-   * @param {number|string} amount 
+   * Format STX amount for display using stacks-echo-kit.
+   * @param {number|string} amount
    * @returns {string} Formatted STX string.
    */
   formatSTX(amount) {
-    return `${parseFloat(amount).toFixed(2)} STX`;
+    return kit.formatStx(parseFloat(amount));
+  }
+
+  /**
+   * Validate a Stacks address using stacks-echo-kit.
+   * @param {string} address
+   * @returns {boolean}
+   */
+  isValidAddress(address) {
+    return kit.isValidAddress(address);
+  }
+
+  /**
+   * Get explorer URL for a transaction using stacks-echo-kit.
+   * @param {string} txId
+   * @returns {string}
+   */
+  getExplorerTxUrl(txId) {
+    return kit.getExplorerTxUrl(txId, this.network);
+  }
+
+  // --- Private Clarity Encoding Helpers ---
+  _serializeInt(val) {
+    const hex = BigInt(val).toString(16).padStart(32, '0');
+    return '0x00' + hex;
+  }
+
+  _serializeStringAscii(str) {
+    const hexStr = Array.from(new TextEncoder().encode(str))
+      .map(b => b.toString(16).padStart(2, '0'))
+      .join('');
+    const lenHex = str.length.toString(16).padStart(8, '0');
+    return '0x0d' + lenHex + hexStr;
   }
 }
 

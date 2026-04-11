@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,15 +8,15 @@
     <meta name="theme-color" content="#FF5A1F">
     <meta property="og:title" content="FlowLedger">
     <meta property="og:description" content="Stacks daily transaction tracker">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://flowledger.app/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FlowLedger">
     <title>FlowLedger | Daily Transaction Tracker</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://flowledger.app/">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="FlowLedger">
     <link rel="apple-touch-icon" href="/public/logo.png">
     <link rel="manifest" href="site.webmanifest">
 </head>
@@ -57,10 +57,6 @@
                 <h3>Current Balance</h3>
                 <p id="current-balance">0 STX</p>
             </div>
-            <div class="stats-card fee">
-                <h3>Total Contributions</h3>
-                <p id="total-fees">0.00 STX</p>
-            </div>
         </div>
 
         <section class="main-grid">
@@ -86,12 +82,14 @@
                 </form>
 
                 <div class="quick-log">
-                    <h3>âš¡ Quick Log</h3>
+                    <h3>⚡ Quick Log</h3>
                     <div class="quick-buttons">
-                        <button type="button" class="btn btn-quick" onclick="quickLog('Coffee', '2.5', 'expense')">â˜• Coffee</button>
-                        <button type="button" class="btn btn-quick" onclick="quickLog('Lunch', '8', 'expense')">ðŸ” Lunch</button>
-                        <button type="button" class="btn btn-quick" onclick="quickLog('Transport', '5', 'expense')">ðŸš• Travel</button>
-                        <button type="button" class="btn btn-quick" onclick="quickLog('Salary', '500', 'income')">ðŸ’° Salary</button>
+                        <button type="button" class="btn btn-quick" onclick="quickLog('Coffee', '2.5', 'expense')">☕ Coffee 2.5 STX</button>
+                        <button type="button" class="btn btn-quick" onclick="quickLog('Lunch', '8', 'expense')">🍔 Lunch 8 STX</button>
+                        <button type="button" class="btn btn-quick" onclick="quickLog('Transport', '5', 'expense')">🚕 Transport 5 STX</button>
+                        <button type="button" class="btn btn-quick" onclick="quickLog('Salary', '500', 'income')">💰 Salary 500 STX</button>
+                        <button type="button" class="btn btn-quick" onclick="quickLog('Freelance', '50', 'income')">💼 Freelance 50 STX</button>
+                        <button type="button" class="btn btn-quick" onclick="quickLog('Gift', '25', 'income')">🎁 Gift 25 STX</button>
                     </div>
                 </div>
             </div>
@@ -103,9 +101,13 @@
                 </div>
             </div>
 
+            <div class="chart-section card">
+                <h2>Spending Analytics</h2>
+                <canvas id="transaction-chart"></canvas>
+            </div>
 
             <div class="lookup-section card">
-                <h2>ðŸ” Lookup On-Chain Transaction</h2>
+                <h2>🔍 Lookup On-Chain Transaction</h2>
                 <p class="lookup-desc">Read any transaction stored in the smart contract.</p>
                 <div class="form-group">
                     <label for="lookup-address">Wallet Address</label>
@@ -121,7 +123,7 @@
         </section>
 
         <div class="contract-info card">
-            <h2>ðŸ“œ Smart Contract</h2>
+            <h2>📜 Smart Contract</h2>
             <p>This dApp is powered by a Clarity smart contract deployed on Stacks mainnet.</p>
             <div class="contract-badge">
                 <span class="badge-label">Contract:</span>
@@ -136,13 +138,11 @@
         <p>&copy; 2026 FlowLedger | Built for Stacks April on Talent Protocol</p>
     </footer>
 
+    <!-- Chart.js for analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- FlowLedger SDK -->
     <script src="public/flowledger-sdk.js"></script>
     <!-- FlowLedger App -->
     <script src="app.js"></script>
 </body>
 </html>
-
-
-
-

@@ -16,7 +16,7 @@
   ],
   "author": "earnwithalee",
   "license": "MIT",
-  "peerDependencies": {
-    "@earnwithalee/stacksrank-sdk": "^1.0.0"
+  "dependencies": {
+    "stacks-echo-kit": "^1.0.0"
   }
 }

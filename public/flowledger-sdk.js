@@ -68,6 +68,32 @@ const FlowLedgerSDK = (() => {
       return response.result;
     }
 
+    /** Get a specific transaction from the contract */
+    async getTransaction(address, txId) {
+      const url = `https://stacks-node-api.mainnet.stacks.co/v2/contracts/call-read/${this.contractAddress}/${this.contractName}/get-transaction`;
+      try {
+        const res = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sender: address,
+            arguments: [
+              encoding.serializeStringAscii(address),
+              encoding.serializeInt(parseInt(txId)),
+            ],
+          }),
+        });
+        const data = await res.json();
+        if (data.okay && data.result) {
+          return { memo: `Transaction #${txId}`, raw: data.result };
+        }
+        return null;
+      } catch (err) {
+        console.error('getTransaction error:', err);
+        return null;
+      }
+    }
+
     /** Get user balance */
     async getBalance(address) {
       const url = `https://stacks-node-api.mainnet.stacks.co/v2/accounts/${address}/balances`;
