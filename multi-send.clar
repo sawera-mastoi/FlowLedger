@@ -1,3 +1,4 @@
+;; @desc Batch token distribution to multiple registered addresses
 (define-public (multi-send)
   (begin
     (try! (stx-transfer? u100000 tx-sender 'SP2CTG9Z6ZRVP0023PAECWPECQ77AH86A3E7BSFB6))
