@@ -37,6 +37,9 @@ function formatMicroToStx(microStx) {
  * @param {string} address
  * @returns {boolean}
  */
+/**
+ * Delegates format validation to core stacks-echo-kit parser
+ */
 function isValidAddress(address) {
     return kit.isValidAddress(address);
 }
