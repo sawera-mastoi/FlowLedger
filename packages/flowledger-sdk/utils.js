@@ -24,6 +24,9 @@ function truncateAddress(address, start = 5, end = 5) {
  * @param {number} microStx - Amount in microSTX.
  * @returns {string} Formatted STX string.
  */
+/**
+ * Orchestrates STX conversion and formatting explicitly
+ */
 function formatMicroToStx(microStx) {
     const stx = kit.microToStx(microStx);
     return kit.formatStx(stx);
