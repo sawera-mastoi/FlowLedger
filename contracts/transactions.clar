@@ -46,6 +46,7 @@
 )
 
 ;; Get last transaction ID
+;; @desc Access global auto-increment value
 (define-read-only (get-last-id)
   (ok (var-get last-id))
 )
