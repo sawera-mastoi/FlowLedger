@@ -1,6 +1,7 @@
 ;; @desc Batch token distribution to multiple registered addresses
 (define-public (multi-send)
   (begin
+    ;; Batch segment partition 1
     (try! (stx-transfer? u100000 tx-sender 'SP2CTG9Z6ZRVP0023PAECWPECQ77AH86A3E7BSFB6))
     (try! (stx-transfer? u100000 tx-sender 'SP3MCGG8FG8BR3FS8W0AW98H7FFWX1BM3BES6JY9V))
     (try! (stx-transfer? u100000 tx-sender 'SP17H7SMP3J7MQBGA2Q6R53CTZVR9R3C9J6HHDFR3))
