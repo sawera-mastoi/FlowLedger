@@ -31,6 +31,7 @@
 ;; Read-only functions
 
 ;; Get the current value of the counter
+;; @desc Access current counter value
 (define-read-only (get-counter)
   (ok (var-get counter))
 )
