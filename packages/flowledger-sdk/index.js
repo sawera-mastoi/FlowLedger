@@ -41,6 +41,9 @@ class FlowLedgerSDK {
    * @param {string} tx.type - "income" or "expense" (max 10 chars).
    * @returns {Promise<Object>} The transaction broadcast response.
    */
+  /**
+   * Marshals the transaction payload into Clarity args
+   */
   async addTransaction({ amountSTX, memo, type }) {
     const provider = (typeof window !== 'undefined') && (window.LeatherProvider || window.StacksProvider);
     if (!provider) throw new Error('Wallet not available');
