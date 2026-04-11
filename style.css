@@ -39,7 +39,7 @@ body {
     background-color: var(--secondary);
     color: white;
     padding: 0.5rem 0;
-    z-index: 100;
+    z-index: var(--z-index-nav);
 }
 
 .nav-container {
