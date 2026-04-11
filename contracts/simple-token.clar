@@ -12,6 +12,7 @@
 ;; Public functions
 
 ;; Transfer tokens to another principal
+;; @desc SIP-010 compliant transfer implementation
 (define-public (transfer (amount uint) (sender principal) (recipient principal) (memo (optional (buff 34))))
   (begin
     (asserts! (is-eq tx-sender sender) err-not-token-owner)
