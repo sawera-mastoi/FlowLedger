@@ -17,6 +17,9 @@ class FlowLedgerSDK {
    * Connect to the user's Stacks wallet (Leather/Hiro).
    * @returns {Promise<string>} The connected STX address.
    */
+  /**
+   * Connects the Stacks provider instance
+   */
   async connect() {
     const provider = (typeof window !== 'undefined') && (window.LeatherProvider || window.StacksProvider);
     if (!provider) {
