@@ -108,6 +108,9 @@ class FlowLedgerSDK {
    * @param {string} address - Stacks address.
    * @returns {Promise<string>} Balance in STX.
    */
+  /**
+   * Resolves the latest mainnet STX balance for specific address
+   */
   async getBalance(address) {
     const apiUrl = kit.buildApiUrl(`/v2/accounts/${address}/balances`, this.network);
     const res = await fetch(apiUrl);
