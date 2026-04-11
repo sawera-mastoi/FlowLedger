@@ -16,6 +16,7 @@
 ;; Public functions
 
 ;; Add a new transaction
+;; @desc Add new tx record to global ledger map
 (define-public (add-transaction (amount int) (memo (string-ascii 50)) (tx-type (string-ascii 10)))
   (let
     (
