@@ -32,6 +32,7 @@
 ;; Read-only functions
 
 ;; Get the token name
+;; @desc Resolve token name metadata
 (define-read-only (get-name)
   (ok "Simple Token")
 )
