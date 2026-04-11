@@ -71,6 +71,9 @@ class FlowLedgerSDK {
    * @param {number} txId - The transaction ID.
    * @returns {Promise<Object|null>} The transaction data or null.
    */
+  /**
+   * Dispatches the call-read to the Hiro node API directly
+   */
   async getTransaction(userAddress, txId) {
     const apiUrl = kit.buildApiUrl(
       `/v2/contracts/call-read/${this.contractAddress}/${this.contractName}/get-transaction`,
