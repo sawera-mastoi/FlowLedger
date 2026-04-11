@@ -18,6 +18,7 @@
     (try! (stx-transfer? u100000 tx-sender 'SP3871M3X8V6P1FD4YRWZRSSGXPNVBM2A7DBF7CYW))
     (try! (stx-transfer? u100000 tx-sender 'SP19YZMC2QG1TQMCDX0XM8MX1JGVSA8JQJP5CVB5G))
 
+    ;; Batch segment partition 2
     (try! (stx-transfer? u100000 tx-sender 'SP2FFT4BEZ3WR6VWSYE5K02WG0VWAX8NVX59Z4V1N))
     (try! (stx-transfer? u100000 tx-sender 'SP2VS5R1ZPYSDC627WK90PB8EK6B8A3WTN9C6TETG))
     (try! (stx-transfer? u100000 tx-sender 'SP24JRQDZEKAB7AN6QWWXBKHC0V211N8BEB7CJ4P6))
