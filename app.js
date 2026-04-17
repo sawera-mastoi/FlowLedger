@@ -130,6 +130,10 @@ async function handleSubmit(e) {
 }
 
 // ─── UI Helpers ───────────────────────────────────────────────────
+/**
+ * Adds a transaction to the UI list
+ * @param {Object} tx - The transaction object
+ */
 function addTransactionToList(tx) {
   const emptyMsg = document.querySelector('.empty-msg');
   if (emptyMsg) emptyMsg.remove();
