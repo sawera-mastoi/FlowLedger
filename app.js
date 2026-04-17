@@ -156,6 +156,9 @@ function addTransactionToList(tx) {
   transactionList.prepend(item);
 }
 
+/**
+ * Updates the statistics display in the DOM
+ */
 function updateStats() {
   let income = 0;
   let expense = 0;
