@@ -1,3 +1,4 @@
+"use strict";
 // FlowLedger App Logic
 // Now powered by the FlowLedger SDK!
 
