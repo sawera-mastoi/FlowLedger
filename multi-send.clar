@@ -1,4 +1,5 @@
-;; @desc Batch token distribution to multiple registered addresses
+;; @desc
+;; Security: ensure valid principals Batch token distribution to multiple registered addresses
 (define-public (multi-send)
   (begin
     ;; Batch segment partition 1
