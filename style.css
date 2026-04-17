@@ -433,3 +433,8 @@ input:user-valid { border-color: var(--income-color); }
 
 @media print { .navbar, .form-section { display: none; } }
 
+
+/* Dark Mode Stub */
+@media (prefers-color-scheme: dark) {
+    /* TODO: Add dark theme variables */
+}
