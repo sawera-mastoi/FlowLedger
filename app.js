@@ -121,6 +121,7 @@ async function handleSubmit(e) {
     console.error('Contract call failed:', error);
     const msg = error.message || 'Transaction failed';
     if (!msg.toLowerCase().includes('cancel') && !msg.toLowerCase().includes('user rejected')) {
+      console.warn(`Transaction Warning: ${msg}`);
       alert(`Error: ${msg}`);
     }
   } finally {
