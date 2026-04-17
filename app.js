@@ -244,7 +244,7 @@ async function lookupTransaction() {
   const id = document.getElementById('lookup-id').value;
   const resultEl = document.getElementById('lookup-result');
 
-  if (!address || !id) {
+  if (!address.trim() || !id) {
     alert('Please enter both address and transaction ID');
     return;
   }
