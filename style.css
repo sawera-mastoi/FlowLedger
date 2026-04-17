@@ -424,7 +424,7 @@ body {
 .nav-logo { transition: opacity 0.2s; }
 .nav-logo:hover { opacity: 0.9; }
 
-.btn:focus, input:focus, select:focus { outline: 2px solid var(--primary-dark); outline-offset: 2px; }
+.btn:focus, input:focus, select:focus { outline: 2px solid var(--primary-dark); outline-offset: 2px; box-shadow: 0 0 0 4px rgba(255, 90, 31, 0.2); }
 
 input:user-invalid { border-color: var(--expense-color); }
 input:user-valid { border-color: var(--income-color); }
