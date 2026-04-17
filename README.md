@@ -6,7 +6,7 @@
 
 ![FlowLedger Logo](public/logo.png)
 
-A lightweight dApp to track daily expenses/income and store transaction summaries on-chain via Stacks.
+A lightweight dApp to track daily expenses and income, securely storing transaction summaries on-chain via Stacks.
 
 ## Table of Contents
 - [Features](#features)
