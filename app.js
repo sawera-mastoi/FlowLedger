@@ -79,7 +79,7 @@ async function handleSubmit(e) {
   const memoValue = document.getElementById('memo').value;
   const typeValue = document.getElementById('tx-type').value;
 
-  if (amountValue === "" || parseFloat(amountValue) < 0) {
+  if (amountValue === "" || parseFloat(amountValue) <= 0) {
     alert('⚠️ Please enter a valid non-negative amount.');
     return;
   }
