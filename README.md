@@ -116,7 +116,7 @@ npx serve .
 - [x] stacks-echo-kit integration
 - [ ] Multi-wallet support
 - [ ] CSV export functionality
-- [ ] Dark mode theme
+- [x] Dark mode theme
 - [ ] Transaction history pagination
 
 ---
