@@ -254,6 +254,8 @@ body {
 
 .lookup-success {
     background: #ECFDF5;
+    transition: background 0.3s;
+    transition: background 0.3s;
     border: 1px solid var(--income-color);
     border-radius: 8px;
     padding: 1rem;
