@@ -40,3 +40,5 @@
     (ok true)
   )
 )
+
+;; End of multi-send contract
