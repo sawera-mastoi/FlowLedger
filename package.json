@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "FlowLedger - Daily Transaction Tracker for Stacks",
   "keywords": ["stacks", "web3", "dapp"],
-  "private": true,
+
   "author": "FlowLedger Team",
   "scripts": {
     "lint": "eslint .",
