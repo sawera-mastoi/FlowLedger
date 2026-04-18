@@ -1,9 +1,12 @@
 {
   "name": "flowledger-dapp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "FlowLedger - Daily Transaction Tracker for Stacks",
-  "keywords": ["stacks", "web3", "dapp"],
-
+  "keywords": [
+    "stacks",
+    "web3",
+    "dapp"
+  ],
   "author": "FlowLedger Team",
   "scripts": {
     "lint": "eslint .",
