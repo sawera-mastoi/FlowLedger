@@ -1,13 +1,34 @@
 {
   "name": "flowledger-dapp",
   "version": "1.0.1",
-  "description": "FlowLedger - Daily Transaction Tracker for Stacks",
+  "description": "FlowLedger - Daily Transaction Tracker for Stacks. A lightweight dApp to track daily expenses and income on the Stacks blockchain with Clarity smart contracts.",
   "keywords": [
     "stacks",
     "web3",
-    "dapp"
+    "dapp",
+    "blockchain",
+    "bitcoin",
+    "clarity",
+    "ledger",
+    "flowledger",
+    "stx",
+    "talent-protocol",
+    "builder-rewards",
+    "defi",
+    "wallet",
+    "hiro",
+    "leather"
   ],
-  "author": "FlowLedger Team",
+  "author": "FlowLedger Team <earnwithalee@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sawera-mastoi/FlowLedger.git"
+  },
+  "homepage": "https://github.com/sawera-mastoi/FlowLedger#readme",
+  "bugs": {
+    "url": "https://github.com/sawera-mastoi/FlowLedger/issues"
+  },
   "scripts": {
     "lint": "eslint .",
     "format": "prettier --write ."
