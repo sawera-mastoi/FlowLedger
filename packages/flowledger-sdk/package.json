@@ -19,6 +19,9 @@
   "author": "earnwithalee",
   "license": "MIT",
   "dependencies": {
+    "@stacks/connect": "^7.3.0",
+    "@stacks/network": "^6.13.0",
+    "@stacks/transactions": "^6.13.0",
     "stacks-echo-kit": "^1.0.0"
   }
 }

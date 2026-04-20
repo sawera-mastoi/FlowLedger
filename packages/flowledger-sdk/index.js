@@ -5,7 +5,9 @@
  */
 
 const kit = require('stacks-echo-kit');
-
+const { showConnect } = require('@stacks/connect');
+const { openContractCall } = require('@stacks/transactions');
+const { StacksMainnet, StacksTestnet } = require('@stacks/network');
 class FlowLedgerSDK {
   constructor(config = {}) {
     this.contractAddress = config.contractAddress || 'SP3AMZ74TRAWC92ZB110E38SZB7F1T06EHZ38QMH4';
