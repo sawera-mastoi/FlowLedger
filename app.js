@@ -92,7 +92,7 @@ async function handleSubmit(e) {
   }
 
   if (!memoValue.trim()) {
-    alert('⚠️ Please enter a memo.');
+    alert('⚠️ Please enter a memo description.');
     return;
   }
 
