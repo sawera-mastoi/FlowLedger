@@ -151,7 +151,7 @@ body {
 
 .stats-card {
     background: var(--card-bg);
-    padding: 1.5rem;
+    padding: var(--card-padding, 1.5rem);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
 }
