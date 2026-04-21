@@ -220,6 +220,7 @@ function initChart() {
     options: {
       responsive: true,
       maintainAspectRatio: false,
+      interaction: { mode: 'index' },
       plugins: {
         legend: { position: 'bottom' },
       },
