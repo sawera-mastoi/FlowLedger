@@ -142,6 +142,7 @@ async function handleSubmit(e) {
  * @param {Object} tx - The transaction object
  */
 function addTransactionToList(tx) {
+  // Remove empty state message if present
   const emptyMsg = document.querySelector('.empty-msg');
   if (emptyMsg) emptyMsg.remove();
 
