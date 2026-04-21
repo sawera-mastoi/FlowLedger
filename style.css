@@ -436,5 +436,8 @@ input:user-valid { border-color: var(--income-color); }
 
 /* Dark Mode Stub */
 @media (prefers-color-scheme: dark) {
-    /* TODO: Add dark theme variables */
+    --bg: #0B0E14;
+        --card-bg: #151A23;
+        --text: #F8FAFC;
+        --text-muted: #94A3B8;
 }
