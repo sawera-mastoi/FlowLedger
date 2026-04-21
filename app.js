@@ -24,6 +24,9 @@ const currentBalanceEl = document.getElementById('current-balance');
 /**
  * Initialize application and bindings
  */
+/**
+ * Initialize application and bindings
+ */
 function init() {
   console.log('FlowLedger: Initialized with SDK');
   connectBtn.addEventListener('click', connectWallet);

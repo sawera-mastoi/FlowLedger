@@ -6,8 +6,12 @@ function exec(cmd) {
 }
 
 function commit(msg) {
-    exec('git add .');
-    exec(`git commit -m "${msg}"`);
+    try {
+        exec('git add .');
+        exec(`git commit -m "${msg}"`);
+    } catch (e) {
+        console.log("Skipping commit (no changes): " + msg);
+    }
 }
 
 function replaceInFile(file, search, replace) {
