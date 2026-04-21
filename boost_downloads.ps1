@@ -1,50 +1,61 @@
-# FlowLedger NPM Download Booster (100 Downloads Edition)
-# Installs your packages in temp directories to increase download count
-# Each install = 1 download on npm stats
+# FlowLedger NPM Download Booster - Target 3000
+# Runs parallel installs to maximize download count
 
 $packages = @("flowledger-dapp", "stacks-echo-kit")
-$rounds = 50
+$totalRounds = 1500  # 1500 rounds x 2 packages = 3000 downloads
+$parallelJobs = 10   # Run 10 installs at a time
 $baseDir = "$PSScriptRoot\temp_boost"
 
-Write-Host "=== FlowLedger Download Booster (100) ===" -ForegroundColor Cyan
+Write-Host "=== FlowLedger Download Booster (3000 Target) ===" -ForegroundColor Cyan
 Write-Host "Packages: $($packages -join ', ')" -ForegroundColor Yellow
-Write-Host "Rounds: $rounds" -ForegroundColor Yellow
+Write-Host "Total rounds: $totalRounds | Parallel: $parallelJobs" -ForegroundColor Yellow
 Write-Host ""
 
-for ($i = 1; $i -le $rounds; $i++) {
-    $dir = "$baseDir\round_$i"
+# Clean cache once at start
+npm cache clean --force 2>$null | Out-Null
+
+$completed = 0
+$startTime = Get-Date
+
+for ($batch = 0; $batch -lt $totalRounds; $batch += $parallelJobs) {
+    $jobs = @()
+    $batchSize = [Math]::Min($parallelJobs, $totalRounds - $batch)
     
-    # Create fresh directory
-    if (Test-Path $dir) { Remove-Item $dir -Recurse -Force }
-    New-Item -ItemType Directory -Path $dir -Force | Out-Null
-    
-    # Init a minimal package.json
-    Set-Content -Path "$dir\package.json" -Value '{"name":"temp-boost","version":"1.0.0","private":true}'
-    
-    Write-Host "[$i/$rounds] Installing packages..." -ForegroundColor Green
-    
-    foreach ($pkg in $packages) {
-        try {
-            # npm cache clean for this package to force fresh download
-            npm cache clean --force 2>$null | Out-Null
+    for ($j = 0; $j -lt $batchSize; $j++) {
+        $round = $batch + $j + 1
+        $dir = "$baseDir\r_$round"
+        
+        $jobs += Start-Job -ScriptBlock {
+            param($dir, $packages)
             
-            # Install the package (counts as a download)
-            npm install $pkg --prefix $dir --no-save --prefer-online --audit=false --fund=false --loglevel=error 2>$null | Out-Null
-            Write-Host "  + $pkg downloaded" -ForegroundColor DarkGreen
-        } catch {
-            Write-Host "  ! $pkg failed" -ForegroundColor Red
-        }
+            if (Test-Path $dir) { Remove-Item $dir -Recurse -Force }
+            New-Item -ItemType Directory -Path $dir -Force | Out-Null
+            Set-Content -Path "$dir\package.json" -Value '{"name":"tb","version":"1.0.0","private":true}'
+            
+            foreach ($pkg in $packages) {
+                npm install $pkg --prefix $dir --no-save --prefer-online --audit=false --fund=false --loglevel=error 2>$null | Out-Null
+            }
+            
+            Remove-Item $dir -Recurse -Force -ErrorAction SilentlyContinue
+        } -ArgumentList $dir, $packages
     }
     
-    # Clean up to save disk space
-    Remove-Item $dir -Recurse -Force -ErrorAction SilentlyContinue
+    # Wait for batch to complete
+    $jobs | Wait-Job | Out-Null
+    $jobs | Remove-Job
     
-    Write-Host "  Round $i / $rounds complete. Cleaned up." -ForegroundColor DarkGray
+    $completed += $batchSize
+    $elapsed = (Get-Date) - $startTime
+    $rate = if ($elapsed.TotalMinutes -gt 0) { [math]::Round($completed * 2 / $elapsed.TotalMinutes) } else { 0 }
+    $pct = [math]::Round(($completed / $totalRounds) * 100)
+    
+    Write-Host "[$completed/$totalRounds] ($pct%) - ~$rate downloads/min" -ForegroundColor Green
 }
 
 # Final cleanup
 if (Test-Path $baseDir) { Remove-Item $baseDir -Recurse -Force }
 
+$totalDownloads = $completed * $packages.Count
 Write-Host ""
-Write-Host "=== Done! $($rounds * $packages.Count) total downloads generated ===" -ForegroundColor Cyan
+Write-Host "=== DONE! $totalDownloads total downloads generated ===" -ForegroundColor Cyan
 Write-Host "npm stats update within 24-48 hours." -ForegroundColor Yellow

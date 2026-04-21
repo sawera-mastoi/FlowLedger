@@ -21,6 +21,9 @@ const totalExpenseEl = document.getElementById('total-expense');
 const currentBalanceEl = document.getElementById('current-balance');
 
 // ─── Initialization ────────────────────────────────────────────────
+/**
+ * Initialize application and bindings
+ */
 function init() {
   console.log('FlowLedger: Initialized with SDK');
   connectBtn.addEventListener('click', connectWallet);
