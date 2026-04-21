@@ -424,7 +424,7 @@ body {
 .tx-item:hover { background-color: #F1F5F9; }
 
 .nav-logo { transition: opacity 0.2s; }
-.nav-logo:hover { opacity: 0.9; }
+.nav-logo:hover { opacity: 0.8; transform: scale(1.02); }
 
 .btn:focus, input:focus, select:focus { outline: 2px solid var(--primary-dark); outline-offset: 2px; box-shadow: 0 0 0 4px rgba(255, 90, 31, 0.2); }
 
