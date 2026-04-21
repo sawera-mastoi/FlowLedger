@@ -278,6 +278,9 @@ async function lookupTransaction() {
 }
 
 // ─── Quick Log ────────────────────────────────────────────────────
+/**
+ * Trigger a quick predefined transaction form submission
+ */
 function quickLog(memo, amount, type) {
   if (!userAddress) {
     alert('Please connect your wallet first!');
