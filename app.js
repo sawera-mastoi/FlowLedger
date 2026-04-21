@@ -172,7 +172,7 @@ function updateStats() {
   let income = 0;
   let expense = 0;
 
-  const items = transactionList.querySelectorAll('.tx-item');
+  const items = transactionList.querySelectorAll('.tx-item'); // Aggregate active DOM nodes
   items.forEach((item) => {
     const amountText = item.querySelector('.tx-amount').innerText;
     const amount = parseFloat(amountText.replace(/[+\- STX]/g, ''));
