@@ -1,12 +1,20 @@
 {
   "name": "@earnwithalee/flowledger-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Official SDK for interacting with FlowLedger smart contracts on the Stacks blockchain.",
   "main": "index.js",
   "browser": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sawera-mastoi/FlowLedger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sawera-mastoi/FlowLedger/issues"
+  },
+  "homepage": "https://github.com/sawera-mastoi/FlowLedger#readme",
   "keywords": [
     "stacks",
     "clarity",

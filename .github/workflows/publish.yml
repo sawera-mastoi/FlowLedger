@@ -1,0 +1,35 @@
+name: Publish to GitHub Packages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v3
+      
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@sawera-mastoi'
+          
+      - run: npm install
+      
+      - name: Modify package.json for GitHub Packages
+        run: |
+          # GitHub Packages requires the package name to be scoped to the repository owner
+          sed -i 's/"name": "flowledger-dapp"/"name": "@sawera-mastoi\/flowledger-dapp"/g' package.json
+          # Bump version to avoid conflict if already published
+          npm version patch --no-git-tag-version
+          
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
