@@ -59,6 +59,7 @@ async function connectWallet() {
 /**
  * Overrides UI tracking after network balance retrieval
  */
+/** Async retrieval of network balance */
 async function updateBalanceDisplay() {
   if (!userAddress) return;
   const balance = await sdk.getBalance(userAddress);
