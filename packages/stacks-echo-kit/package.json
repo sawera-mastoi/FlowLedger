@@ -1,0 +1,45 @@
+{
+  "name": "stacks-echo-kit",
+  "version": "1.0.0",
+  "description": "A lightweight utility toolkit for the Stacks blockchain ecosystem. Includes STX formatting, address validation, transaction helpers, price utilities, and network configuration tools.",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "stacks",
+    "stx",
+    "blockchain",
+    "bitcoin",
+    "clarity",
+    "web3",
+    "defi",
+    "wallet",
+    "hiro",
+    "leather",
+    "xverse",
+    "stacks-echo",
+    "talent-protocol",
+    "builder-rewards",
+    "ecosystem",
+    "dashboard",
+    "utility"
+  ],
+  "author": "earnwithalee <earnwithalee@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sawera-mastoi/FlowLedger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sawera-mastoi/FlowLedger/issues"
+  },
+  "homepage": "https://github.com/sawera-mastoi/FlowLedger#readme",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "README.md",
+    "LICENSE"
+  ]
+}

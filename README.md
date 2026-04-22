@@ -50,8 +50,8 @@ FlowLedger is powered by **two published npm packages** built specifically for t
 
 | | |
 |---|---|
-| **npm** | [`flowledger-dapp`](https://www.npmjs.com/package/flowledger-dapp) |
-| **Version** | `1.0.1` |
+| **npm** | [`@sawera-mastoi/flowledger-dapp`](https://www.npmjs.com/package/@sawera-mastoi/flowledger-dapp) |
+| **Version** | `1.0.3` |
 | **License** | MIT |
 | **Author** | FlowLedger Team |
 | **Registry** | [npmjs.com/package/flowledger-dapp](https://www.npmjs.com/package/flowledger-dapp) |
@@ -59,7 +59,7 @@ FlowLedger is powered by **two published npm packages** built specifically for t
 #### Install
 
 ```bash
-npm install flowledger-dapp
+npm install @sawera-mastoi/flowledger-dapp
 ```
 
 #### What's Included
@@ -209,7 +209,7 @@ npm install
 
 ```bash
 # Install the full DApp package
-npm install flowledger-dapp
+npm install @sawera-mastoi/flowledger-dapp
 
 # Install the Stacks utility toolkit
 npm install stacks-echo-kit
@@ -290,36 +290,31 @@ npx serve .
 ```text
 FlowLedger/
 │
-├── index.html                  # Main application UI
-├── style.css                   # Global and component styles
-├── app.js                      # Frontend logic & Wallet integration
-├── package.json                # Project config (npm: flowledger-dapp@1.0.1)
-│
-├── contracts/                  # Stacks Smart Contracts (Clarity)
-│   ├── transactions.clar       # Core logic for ledger entries
-│   ├── simple-counter.clar     # Counter contract
-│   ├── simple-token.clar       # Token contract
-│   ├── simple-profile.clar     # Profile contract
-│   └── README_CONTRACTS.md     # Contract documentation
+├── package.json                # Monorepo manager (npm workspaces)
+├── README.md                   # This file
+├── serve.ps1                   # Local development server script
 │
 ├── packages/
-│   └── flowledger-sdk/         # Internal SDK (npm: @earnwithalee/flowledger-sdk)
-│       ├── index.js            # SDK class with wallet, tx, balance methods
-│       ├── utils.js            # Utility helpers
-│       └── package.json        # Depends on stacks-echo-kit@^1.0.0
+│   ├── flowledger-dapp/        # Main App (npm: flowledger-dapp)
+│   │   ├── index.html          # Main application UI
+│   │   ├── app.js              # Frontend logic
+│   │   ├── style.css           # Styling
+│   │   ├── contracts/          # Clarity Smart Contracts
+│   │   ├── public/             # Static assets (logo, sdk-bundle)
+│   │   └── package.json        
+│   │
+│   ├── stacks-echo-kit/        # Utility Kit (npm: stacks-echo-kit)
+│   │   ├── index.js            # Toolkit logic
+│   │   ├── README.md           # Documentation
+│   │   └── package.json        
+│   │
+│   └── flowledger-sdk/         # Official SDK (npm: @earnwithalee/flowledger-sdk)
+│       ├── index.js            
+│       ├── utils.js            
+│       └── package.json        
 │
-├── public/                     # Static assets
-│   ├── logo.png                # FlowLedger logo
-│   └── flowledger-sdk.js       # Browser-ready SDK bundle
-│
-├── frontend/                   # Additional frontend assets
-├── .github/                    # GitHub workflows & templates
-├── vercel.json                 # Vercel deployment config
-├── eslint.config.js            # Linting config
-├── .prettierrc                 # Code formatting config
-├── .editorconfig               # Editor settings
-├── LICENSE                     # MIT License
-└── README.md                   # This file
+├── .github/                    # GitHub workflows
+└── vercel.json                 # Vercel deployment config
 ```
 
 ---

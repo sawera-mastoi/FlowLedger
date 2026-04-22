@@ -1,44 +1,24 @@
 {
-  "name": "flowledger-dapp",
-  "version": "1.0.2",
-  "description": "FlowLedger - Daily Transaction Tracker for Stacks. A lightweight dApp to track daily expenses and income on the Stacks blockchain with Clarity smart contracts.",
-  "keywords": [
-    "stacks",
-    "bitcoin",
-    "web3",
-    "dapp",
-    "blockchain",
-    "bitcoin",
-    "clarity",
-    "ledger",
-    "flowledger",
-    "stx",
-    "talent-protocol",
-    "builder-rewards",
-    "defi",
-    "wallet",
-    "hiro",
-    "leather"
+  "name": "flowledger-monorepo",
+  "private": true,
+  "description": "Monorepo for the FlowLedger ecosystem on Stacks.",
+  "scripts": {
+    "dev": "npx serve packages/flowledger-dapp",
+    "lint": "npm run lint --workspaces --if-present",
+    "format": "npm run format --workspaces --if-present",
+    "test": "npm test --workspaces --if-present"
+  },
+  "workspaces": [
+    "packages/*"
   ],
-  "author": "FlowLedger Team <earnwithalee@gmail.com>",
+  "author": "earnwithalee",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sawera-mastoi/FlowLedger.git"
   },
-  "homepage": "https://github.com/sawera-mastoi/FlowLedger#readme",
-  "bugs": {
-    "url": "https://github.com/sawera-mastoi/FlowLedger/issues"
-  },
-  "scripts": {
-    "lint": "eslint .",
-    "format": "prettier --write ."
-  },
-  "dependencies": {
-    "@earnwithalee/flowledger-sdk": "file:packages/flowledger-sdk",
-    "@stacks/connect": "^7.3.0",
-    "@stacks/network": "^6.13.0",
-    "@stacks/transactions": "^6.13.0",
-    "stacks-echo-kit": "^1.0.0"
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "prettier": "^3.0.0"
   }
 }

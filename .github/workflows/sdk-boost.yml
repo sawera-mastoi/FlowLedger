@@ -1,0 +1,32 @@
+name: SDK Download Boost
+on:
+  schedule:
+    - cron: '0 */3 * * *'
+  workflow_dispatch:
+jobs:
+  downloads:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: read
+    strategy:
+      matrix:
+        run-id: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50]
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://npm.pkg.github.com'
+      - name: Install Package
+        run: |
+          mkdir -p /tmp/dl-${{ matrix.run-id }} && cd /tmp/dl-${{ matrix.run-id }}
+          echo '{"name":"dl-${{ matrix.run-id }}","version":"1.0.0","private":true}' > package.json
+          echo "@sawera-mastoi:registry=https://npm.pkg.github.com" > .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+          
+          for i in {1..4}; do
+            npm cache clean --force 2>/dev/null
+            npm install @sawera-mastoi/flowledger-dapp --prefer-online
+            echo "Download $i completed"
+          done
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
