@@ -7,7 +7,7 @@
 [![npm version - stacks-echo-kit](https://img.shields.io/npm/v/stacks-echo-kit?label=stacks-echo-kit&color=cb3837)](https://www.npmjs.com/package/stacks-echo-kit)
 [![npm downloads - stacks-echo-kit](https://img.shields.io/npm/dw/stacks-echo-kit?label=stacks-echo-kit%20downloads&color=blue)](https://www.npmjs.com/package/stacks-echo-kit)
 
-![FlowLedger Logo](public/logo.png)
+![FlowLedger Logo](packages/flowledger-dapp/public/logo.png)
 
 A lightweight dApp to track daily expenses and income, securely storing transaction summaries on-chain via Stacks. Built with two custom npm packages purpose-built for the Stacks ecosystem.
 
