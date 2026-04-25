@@ -25,6 +25,10 @@ html {
     box-sizing: border-box;
 }
 
+:root {
+  --primary: #FF5A1F;
+  --bg: #0B0E14;
+}
 body {
     font-family: 'Outfit', sans-serif;
     background-color: var(--bg);
