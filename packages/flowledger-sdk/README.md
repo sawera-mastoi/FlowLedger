@@ -10,7 +10,7 @@ The official SDK for interacting with FlowLedger smart contracts on the Stacks b
 
 ## Installation
 ```bash
-npm install @earnwithalee/flowledger-sdk stacks-echo-kit
+npm install @earnwithalee/flowledger-sdk --save stacks-echo-kit
 ```
 
 ## Quick Start
