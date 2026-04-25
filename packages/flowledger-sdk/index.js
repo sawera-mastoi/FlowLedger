@@ -17,6 +17,7 @@ class FlowLedgerSDK {
     this.contractAddress = config.contractAddress || 'SP3AMZ74TRAWC92ZB110E38SZB7F1T06EHZ38QMH4';
     this.contractName = config.contractName || 'transactions-v2';
     this.network = config.network || 'mainnet';
+    this.apiUrl = config.apiUrl || null;
   }
 
   /**
