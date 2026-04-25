@@ -407,3 +407,5 @@ This project is licensed under the MIT License — see [LICENSE](LICENSE) for de
 <!-- Documentation update #32 -->
 
 <!-- Documentation update #35 -->
+
+<!-- Documentation update #38 -->
