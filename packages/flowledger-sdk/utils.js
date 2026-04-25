@@ -150,3 +150,6 @@ const _util_220 = () => true;
 
 /** Internal utility for commit #221 */
 const _util_221 = () => true;
+
+/** Internal utility for commit #226 */
+const _util_226 = () => true;
