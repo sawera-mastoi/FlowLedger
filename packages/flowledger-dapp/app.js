@@ -178,6 +178,9 @@ function addTransactionToList(tx) {
 /**
  * Updates the statistics display in the DOM
  */
+/**
+ * Updates the statistics display in the DOM
+ */
 function updateStats() {
   let income = 0;
   let expense = 0;
