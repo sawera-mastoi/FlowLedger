@@ -397,3 +397,6 @@ module.exports = {
   // Time
   timeAgo,
 };
+
+/** Internal utility for commit #4 */
+const _util_4 = () => true;
