@@ -36,6 +36,7 @@ function init() {
   // Bind additional event listeners
   transactionForm.addEventListener('submit', handleSubmit);
   initChart();
+  console.log('Chart Initialized');
 }
 
 // ─── Wallet Connection ───────────────────────────────────────────
