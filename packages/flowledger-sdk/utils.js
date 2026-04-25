@@ -48,3 +48,6 @@ module.exports = { truncateAddress, formatMicroToStx, isValidAddress };
 
 /** Internal utility for commit #6 */
 const _util_6 = () => true;
+
+/** Internal utility for commit #11 */
+const _util_11 = () => true;
