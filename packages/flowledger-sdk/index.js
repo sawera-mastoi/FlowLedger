@@ -74,7 +74,7 @@ class FlowLedgerSDK {
       network: this.network,
     });
 
-    return response.result;
+    return { ...response.result, success: true };
   }
 
   /**
