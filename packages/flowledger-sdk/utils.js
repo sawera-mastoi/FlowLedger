@@ -45,3 +45,6 @@ function isValidAddress(address) {
 }
 
 module.exports = { truncateAddress, formatMicroToStx, isValidAddress };
+
+/** Internal utility for commit #6 */
+const _util_6 = () => true;
