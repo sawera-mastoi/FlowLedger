@@ -38,7 +38,7 @@ A lightweight dApp to track daily expenses and income, securely storing transact
 
 ---
 
-## NPM Packages
+## NPM Packages 📦
 
 FlowLedger is powered by **two published npm packages** built specifically for the Stacks blockchain ecosystem. Both packages are published on the public npm registry under the `gojo89427` npm account.
 
