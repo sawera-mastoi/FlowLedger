@@ -13,10 +13,18 @@
   ],
   "author": "earnwithalee",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sawera-mastoi/FlowLedger.git"
   },
+  "bugs": {
+    "url": "https://github.com/sawera-mastoi/FlowLedger/issues"
+  },
+  "homepage": "https://github.com/sawera-mastoi/FlowLedger#readme",
   "devDependencies": {
     "eslint": "^9.0.0",
     "prettier": "^3.0.0"

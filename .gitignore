@@ -1,9 +1,8 @@
 node_modules/
-.env
-*.log
-serve.ps1
-
-# Environment Variables
+dist/
+build/
 .env
 .env.local
-.env.*.local
+npm-debug.log*
+.DS_Store
+*.tsbuildinfo
