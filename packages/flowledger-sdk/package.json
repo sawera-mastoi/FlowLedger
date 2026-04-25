@@ -30,8 +30,6 @@
     "@stacks/connect": "^7.3.0",
     "@stacks/network": "^6.17.0",
     "@stacks/transactions": "^6.17.0",
-    "axios": "^1.7.9",
-    "x402-stacks": "^2.0.1",
     "stacks-echo-kit": "^1.0.0"
   }
 }

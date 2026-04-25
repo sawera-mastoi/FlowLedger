@@ -175,45 +175,4 @@ class FlowLedgerSDK {
   }
 }
 
-const {
-  withPaymentInterceptor,
-  mainnetConfig,
-  testnetConfig,
-} = require("./interceptor");
-
-const {
-  DEFAULT_DIA_ORACLE_CONTRACT,
-  DEFAULT_SBTC_CONTRACT,
-  DEFAULT_USDCX_CONTRACT,
-  DIA_SBTC_PAIR,
-  normalizeTxid,
-  splitContractId,
-} = require("./network_utils");
-
-const {
-  PAYMENT_REQUIRED_HEADER,
-  PAYMENT_SIGNATURE_HEADER,
-  PAYMENT_RESPONSE_HEADER,
-  buildPaymentSignatureHeader,
-  parsePaymentRequiredHeader,
-  parsePaymentResponseHeader,
-} = require("./x402_utils");
-
-module.exports = {
-  FlowLedgerSDK,
-  withPaymentInterceptor,
-  mainnetConfig,
-  testnetConfig,
-  DEFAULT_DIA_ORACLE_CONTRACT,
-  DEFAULT_SBTC_CONTRACT,
-  DEFAULT_USDCX_CONTRACT,
-  DIA_SBTC_PAIR,
-  normalizeTxid,
-  splitContractId,
-  PAYMENT_REQUIRED_HEADER,
-  PAYMENT_SIGNATURE_HEADER,
-  PAYMENT_RESPONSE_HEADER,
-  buildPaymentSignatureHeader,
-  parsePaymentRequiredHeader,
-  parsePaymentResponseHeader,
-};
+module.exports = { FlowLedgerSDK };
