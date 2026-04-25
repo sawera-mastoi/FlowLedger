@@ -202,6 +202,9 @@ function updateStats() {
   currentBalanceEl.innerText = sdk.formatSTX(income - expense);
 }
 
+/**
+ * Hydrates the UI with transaction history
+ */
 function loadTransactions() {
   // Load mock data or on-chain history if implemented in SDK
   const mockData = [
