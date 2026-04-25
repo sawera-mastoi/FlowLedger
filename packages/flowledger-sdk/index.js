@@ -121,6 +121,9 @@ class FlowLedgerSDK {
   /**
    * Resolves the latest mainnet STX balance for specific address
    */
+  /**
+   * Resolves the latest mainnet STX balance for specific address
+   */
   async getBalance(address) {
     const apiUrl = kit.buildApiUrl(`/v2/accounts/${address}/balances`, this.network);
     const res = await fetch(apiUrl);
