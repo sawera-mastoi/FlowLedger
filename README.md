@@ -27,7 +27,7 @@ A lightweight dApp to track daily expenses and income, securely storing transact
 
 ---
 
-## Features
+## Features ✨
 
 - 🔗 **Leather Wallet Integration** — Connect your Stacks wallet and submit transactions on-chain
 - 📊 **Spending Analytics** — Doughnut chart showing income vs expenses breakdown
