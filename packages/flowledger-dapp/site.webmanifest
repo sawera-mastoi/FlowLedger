@@ -1,6 +1,7 @@
 ﻿{
   "name": "FlowLedger",
   "short_name": "FlowLedger",
+  "short_name": "FlowLedger",
   "icons": [
     {
       "src": "/public/logo.png",
