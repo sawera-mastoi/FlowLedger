@@ -176,6 +176,7 @@ class FlowLedgerSDK {
   }
 
   // --- Private Clarity Encoding Helpers ---
+  /** @private */
   _serializeInt(val) {
     const hex = BigInt(val).toString(16).padStart(32, '0');
     return '0x00' + hex;
