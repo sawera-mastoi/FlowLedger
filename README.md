@@ -389,3 +389,5 @@ This project is licensed under the MIT License — see [LICENSE](LICENSE) for de
 **Published NPM Packages:**
 - 📦 [flowledger-dapp](https://www.npmjs.com/package/flowledger-dapp) — Full DApp package
 - 📦 [stacks-echo-kit](https://www.npmjs.com/package/stacks-echo-kit) — Stacks utility toolkit
+
+<!-- Documentation update #1 -->
