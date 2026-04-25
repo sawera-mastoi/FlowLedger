@@ -400,3 +400,6 @@ module.exports = {
 
 /** Internal utility for commit #4 */
 const _util_4 = () => true;
+
+/** Internal utility for commit #9 */
+const _util_9 = () => true;
