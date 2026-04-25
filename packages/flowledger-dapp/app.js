@@ -172,6 +172,7 @@ function addTransactionToList(tx) {
   `;
 
   transactionList.prepend(item);
+  // Highlight new item
 }
 
 /**
