@@ -384,7 +384,7 @@ This project is licensed under the MIT License — see [LICENSE](LICENSE) for de
 
 ---
 
-*Built for the Stacks April Builder Challenge on Talent Protocol.*
+*Built for the Stacks April Builder Challenge on Talent Protocol. 🚀*
 
 **Published NPM Packages:**
 - 📦 [flowledger-dapp](https://www.npmjs.com/package/flowledger-dapp) — Full DApp package
