@@ -88,7 +88,7 @@ async function handleSubmit(e) {
   const typeValue = document.getElementById('tx-type').value;
 
   const parsed = parseFloat(amountValue);
-  if (amountValue === "" || isNaN(parsed) || parsed <= 0) {
+  if (amountValue === "" || isNaN(parsed) || parsed < 0) {
     alert('⚠️ Please enter a valid non-negative amount.');
     return;
   }
