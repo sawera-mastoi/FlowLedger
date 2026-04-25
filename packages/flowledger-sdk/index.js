@@ -27,6 +27,9 @@ class FlowLedgerSDK {
   /**
    * Connects the Stacks provider instance
    */
+  /**
+   * Connects the Stacks provider instance
+   */
   async connect() {
     const provider = (typeof window !== 'undefined') && (window.LeatherProvider || window.StacksProvider);
     if (!provider) {
