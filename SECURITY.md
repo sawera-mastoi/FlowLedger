@@ -8,5 +8,7 @@
 | < 1.0   | :x:                |
 
 ## Reporting a Vulnerability
+
+Please email earnwithalee@gmail.com for security issues.
 Please DO NOT report security vulnerabilities on the public GitHub issue tracker.
 Email the team directly to report any potential security issues.
