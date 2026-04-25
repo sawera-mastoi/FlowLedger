@@ -285,7 +285,7 @@ npx serve .
 
 ---
 
-## Project Structure
+## Project Structure 📂
 
 ```text
 FlowLedger/
