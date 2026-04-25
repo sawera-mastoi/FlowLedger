@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Target packages on the public npm registry
-const packages = ['flowledger-dapp', 'stacks-echo-kit'];
+const packages = ['@sawera-mastoi/flowledger-dapp', 'stacks-echo-kit'];
 const totalDownloads = 1000;
 const installsPerPkg = totalDownloads / packages.length;
 const concurrent = 50; 

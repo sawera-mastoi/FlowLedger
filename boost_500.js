@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Target 500 total downloads
-const packages = ['flowledger-dapp', 'stacks-echo-kit'];
+const packages = ['@sawera-mastoi/flowledger-dapp', 'stacks-echo-kit'];
 const totalDownloads = 500;
 const installsPerPkg = totalDownloads / packages.length;
 const concurrent = 30; // Increased concurrency slightly

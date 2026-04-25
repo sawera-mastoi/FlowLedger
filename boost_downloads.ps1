@@ -1,7 +1,7 @@
 # FlowLedger NPM Download Booster - Target 3000
 # Runs parallel installs to maximize download count
 
-$packages = @("flowledger-dapp", "stacks-echo-kit")
+$packages = @("@sawera-mastoi/flowledger-dapp", "stacks-echo-kit")
 $totalRounds = 1500  # 1500 rounds x 2 packages = 3000 downloads
 $parallelJobs = 10   # Run 10 installs at a time
 $baseDir = "$PSScriptRoot\temp_boost"

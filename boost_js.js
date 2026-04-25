@@ -2,7 +2,7 @@ const { exec } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-const packages = ['flowledger-dapp', 'stacks-echo-kit'];
+const packages = ['@sawera-mastoi/flowledger-dapp', 'stacks-echo-kit'];
 const totalDownloads = 5000;
 const installsPerPkg = totalDownloads / packages.length;
 const concurrent = 50; 
