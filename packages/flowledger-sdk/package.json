@@ -26,6 +26,7 @@
   ],
   "author": "earnwithalee",
   "license": "MIT",
+  "engines": { "node": ">=16" },
   "dependencies": {
     "@stacks/connect": "^7.3.0",
     "@stacks/network": "^6.17.0",
