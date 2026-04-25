@@ -196,3 +196,6 @@ class FlowLedgerSDK {
 }
 
 module.exports = { FlowLedgerSDK };
+
+/** Internal utility for commit #23 */
+const _util_23 = () => true;
