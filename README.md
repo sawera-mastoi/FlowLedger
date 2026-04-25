@@ -349,7 +349,9 @@ To participate in the Stacks April event on Talent Protocol, ensure you meet the
 
 ---
 
-## Roadmap
+## Roadmap 🗺️
+
+Future features and improvements planned for FlowLedger.
 
 - [x] Leather wallet integration
 - [x] On-chain transaction submission
