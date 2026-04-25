@@ -194,7 +194,7 @@ kit.getExplorerTxUrl("0xabc123...", "mainnet");
 
 ## Installation
 
-### Install the full project
+### Install the full project 🚀
 
 ```bash
 # Clone the repo
