@@ -1,7 +1,7 @@
 {
   "name": "flowledger-dapp",
   "private": true,
-  "description": "Monorepo for the FlowLedger ecosystem on Stacks.",
+  "description": "Monorepo for the FlowLedger ecosystem on Stacks. Built for the Stacks April Builder Challenge.",
   "scripts": {
     "dev": "npx serve packages/flowledger-dapp",
     "lint": "npm run lint --workspaces --if-present",
