@@ -5,6 +5,7 @@
  */
 
 const kit = require('stacks-echo-kit');
+// Utility layer for Stacks operations
 const { showConnect } = require('@stacks/connect');
 const { openContractCall } = require('@stacks/transactions');
 const { StacksMainnet, StacksTestnet } = require('@stacks/network');
