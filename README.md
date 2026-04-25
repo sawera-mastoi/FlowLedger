@@ -319,7 +319,9 @@ FlowLedger/
 
 ---
 
-## Smart Contracts
+## Smart Contracts 📜
+
+Our contracts are written in Clarity and deployed on Stacks.
 
 FlowLedger deploys several Clarity smart contracts on the Stacks blockchain:
 
