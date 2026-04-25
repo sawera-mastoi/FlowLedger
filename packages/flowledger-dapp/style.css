@@ -44,6 +44,7 @@ body {
 
 /* Navbar */
 .navbar {
+    backdrop-filter: blur(8px);
     background-color: var(--secondary);
     color: white;
     padding: 0.5rem 0;
