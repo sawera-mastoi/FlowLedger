@@ -141,6 +141,9 @@ class FlowLedgerSDK {
   /**
    * Truncates wallet address for standard UI display format
    */
+  /**
+   * Truncates wallet address for standard UI display format
+   */
   formatAddress(address) {
     return kit.truncateAddress(address, 6, 4);
   }
