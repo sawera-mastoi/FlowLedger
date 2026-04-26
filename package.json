@@ -30,6 +30,7 @@
     "prettier": "^3.0.0"
   },
   "dependencies": {
-    "@earnwithalee/flowledger-sdk": "^1.0.2"
+    "@earnwithalee/flowledger-sdk": "^1.0.2",
+    "stacks-echo-kit": "^1.0.0"
   }
 }

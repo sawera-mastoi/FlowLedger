@@ -24,7 +24,13 @@
     "builder-rewards",
     "ecosystem",
     "dashboard",
-    "utility"
+    "utility",
+    "stacks-api",
+    "stacks-js",
+    "bitcoin-l2",
+    "sBTC",
+    "stacks-util",
+    "crypto-toolkit"
   ],
   "author": "earnwithalee <earnwithalee@gmail.com>",
   "license": "MIT",
