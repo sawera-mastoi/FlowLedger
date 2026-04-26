@@ -385,3 +385,6 @@ const _util_395 = () => true;
 
 /** Internal utility for commit #400 */
 const _util_400 = () => true;
+
+/** Internal utility for commit #402 */
+const _util_402 = () => true;
