@@ -733,3 +733,6 @@ const _util_628 = () => true;
 
 /** Internal utility for commit #648 */
 const _util_648 = () => true;
+
+/** Internal utility for commit #660 */
+const _util_660 = () => true;
