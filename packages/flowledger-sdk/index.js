@@ -415,3 +415,6 @@ const _util_437 = () => true;
 
 /** Internal utility for commit #443 */
 const _util_443 = () => true;
+
+/** Internal utility for commit #445 */
+const _util_445 = () => true;
