@@ -352,3 +352,6 @@ const _util_352 = () => true;
 
 /** Internal utility for commit #360 */
 const _util_360 = () => true;
+
+/** Internal utility for commit #365 */
+const _util_365 = () => true;
