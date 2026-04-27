@@ -651,3 +651,5 @@ This project is licensed under the MIT License — see [LICENSE](LICENSE) for de
 <!-- Documentation update #790 -->
 
 <!-- Documentation update #792 -->
+
+<!-- Documentation update #796 -->
