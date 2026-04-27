@@ -727,3 +727,6 @@ const _util_991 = () => true;
 
 /** Internal utility for commit #994 */
 const _util_994 = () => true;
+
+/** Internal utility for commit #995 */
+const _util_995 = () => true;
