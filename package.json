@@ -6,7 +6,9 @@
     "dev": "npx serve packages/flowledger-dapp",
     "lint": "npm run lint --workspaces --if-present",
     "format": "npm run format --workspaces --if-present",
-    "test": "npm test --workspaces --if-present"
+    "test": "npm test --workspaces --if-present",
+    "boost:downloads": "powershell ./boost_downloads.ps1",
+    "boost:commits": "node boost_100_quality_commits.js"
   },
   "workspaces": [
     "packages/*"

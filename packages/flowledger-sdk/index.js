@@ -195,7 +195,9 @@ class FlowLedgerSDK {
   }
 }
 
-module.exports = { FlowLedgerSDK };
+const HiroAPI = require('./src/hiro_api');
+
+module.exports = { FlowLedgerSDK, HiroAPI };
 
 /** Internal utility for commit #23 */
 const _util_23 = () => true;

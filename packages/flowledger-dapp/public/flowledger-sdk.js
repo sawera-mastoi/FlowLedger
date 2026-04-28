@@ -104,6 +104,27 @@ const FlowLedgerSDK = (() => {
 
     formatAddress(addr) { return encoding.formatAddress(addr); }
     formatSTX(amt) { return `${parseFloat(amt).toFixed(2)} STX`; }
+
+    // --- Hiro API Features ---
+    async getNetworkStatus() {
+      try {
+        const res = await fetch('https://api.mainnet.hiro.so/extended/v1/status');
+        return await res.json();
+      } catch (e) {
+        console.error('Hiro API Error:', e);
+        return null;
+      }
+    }
+
+    async getMempoolStats() {
+      try {
+        const res = await fetch('https://api.mainnet.hiro.so/extended/v1/tx/mempool/stats');
+        return await res.json();
+      } catch (e) {
+        console.error('Hiro API Error:', e);
+        return null;
+      }
+    }
   }
 
   return SDK;

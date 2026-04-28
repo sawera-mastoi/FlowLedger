@@ -21,22 +21,28 @@ const totalExpenseEl = document.getElementById('total-expense');
 const currentBalanceEl = document.getElementById('current-balance');
 
 // ─── Initialization ────────────────────────────────────────────────
-/**
- * Initialize application and bindings
- */
-/**
- * Initialize application and bindings
- */
-/**
- * Initialize application and bindings
- */
 function init() {
   console.log('FlowLedger: Initialized with SDK v1.0.2');
   connectBtn.addEventListener('click', connectWallet);
-  // Bind additional event listeners
   transactionForm.addEventListener('submit', handleSubmit);
   initChart();
+  updateNetworkStatus();
+  setInterval(updateNetworkStatus, 30000); // Update every 30s
   console.log('Chart Initialized');
+}
+
+async function updateNetworkStatus() {
+  const status = await sdk.getNetworkStatus();
+  const mempool = await sdk.getMempoolStats();
+
+  if (status) {
+    document.getElementById('block-height').innerText = `#${status.stacks_tip_height || '???'}`;
+    document.getElementById('network-reach').innerText = 'Connected ✅';
+  }
+  
+  if (mempool) {
+    document.getElementById('mempool-count').innerText = `${mempool.total_txs || 0} txs`;
+  }
 }
 
 // ─── Wallet Connection ───────────────────────────────────────────
@@ -61,14 +67,6 @@ async function connectWallet() {
   }
 }
 
-/**
- * Overrides UI tracking after network balance retrieval
- */
-/** Async retrieval of network balance */
-/**
- * Overrides UI tracking after network balance retrieval
- */
-/** Async retrieval of network balance */
 async function updateBalanceDisplay() {
   if (!userAddress) return;
   const balance = await sdk.getBalance(userAddress);
@@ -148,12 +146,7 @@ async function handleSubmit(e) {
 }
 
 // ─── UI Helpers ───────────────────────────────────────────────────
-/**
- * Adds a transaction to the UI list
- * @param {Object} tx - The transaction object
- */
 function addTransactionToList(tx) {
-  // Remove empty state message if present
   const emptyMsg = document.querySelector('.empty-msg');
   if (emptyMsg) emptyMsg.remove();
 
@@ -173,20 +166,13 @@ function addTransactionToList(tx) {
   `;
 
   transactionList.prepend(item);
-  // Highlight new item
 }
 
-/**
- * Updates the statistics display in the DOM
- */
-/**
- * Updates the statistics display in the DOM
- */
 function updateStats() {
   let income = 0;
   let expense = 0;
 
-  const items = transactionList.querySelectorAll('.tx-item'); // Aggregate active DOM nodes
+  const items = transactionList.querySelectorAll('.tx-item');
   items.forEach((item) => {
     const amountText = item.querySelector('.tx-amount').innerText;
     const amount = parseFloat(amountText.replace(/[+\- STX]/g, ''));
@@ -202,11 +188,7 @@ function updateStats() {
   currentBalanceEl.innerText = sdk.formatSTX(income - expense);
 }
 
-/**
- * Hydrates the UI with transaction history
- */
 function loadTransactions() {
-  // Load mock data or on-chain history if implemented in SDK
   const mockData = [
     { memo: 'Talent Protocol Reward', amount: '100', type: 'income', date: '4/5/2026' },
     { memo: 'Coffee', amount: '2.5', type: 'expense', date: '4/6/2026' },
@@ -237,7 +219,6 @@ function initChart() {
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      interaction: { mode: 'index' },
       plugins: {
         legend: { position: 'bottom' },
       },
@@ -298,9 +279,6 @@ async function lookupTransaction() {
 }
 
 // ─── Quick Log ────────────────────────────────────────────────────
-/**
- * Trigger a quick predefined transaction form submission
- */
 function quickLog(memo, amount, type) {
   if (!userAddress) {
     alert('Please connect your wallet first!');

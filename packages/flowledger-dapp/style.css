@@ -309,66 +309,6 @@ body {
 .contract-badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    background: #F1F5F9;
-    padding: 0.75rem 1.25rem;
-    border-radius: 8px;
-    font-size: 0.875rem;
-}
-
-.badge-label {
-    font-weight: 600;
-    color: var(--text-muted);
-}
-
-.badge-value {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.badge-value:hover {
-    text-decoration: underline;
-}
-
-.card {
-    background: var(--card-bg);
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-    border: 1px solid #F1F5F9;
-}
-
-.card h2 {
-    margin-bottom: 1.5rem;
-    font-size: 1.25rem;
-}
-
-/* Forms */
-.form-group {
-    margin-bottom: 1.25rem;
-}
-
-.form-group label {
-    display: block;
-    font-size: 0.875rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.form-group input, .form-group select {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #E2E8F0;
-    border-radius: 8px;
-    font-family: inherit;
-    font-size: 1rem;
-}
-
-.form-group input:focus {
-    outline: 2px solid var(--primary);
-    border-color: transparent;
-}
 
 /* Transaction List */
 .transaction-list {
