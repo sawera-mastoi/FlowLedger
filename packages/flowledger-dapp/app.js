@@ -299,3 +299,4 @@ document.addEventListener('DOMContentLoaded', init);
 // Registering Settings
 // Registering GovernancePanel
 // Registering BridgeInterface
+// Registering RewardTracker
