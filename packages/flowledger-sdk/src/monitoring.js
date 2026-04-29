@@ -13,3 +13,6 @@ export class MonitoringModule {
     console.log("[monitoring] Processing data:", data);
     return { success: true, timestamp: Date.now() };
   }
+  _handleError(err) {
+    throw new Error(`[monitoring] Operation failed: ${err.message}`);
+  }
