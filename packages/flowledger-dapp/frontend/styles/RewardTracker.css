@@ -1,3 +1,4 @@
 .rewardtracker { display: flex; flex-direction: column; padding: 20px; }
 .rewardtracker { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); }
 @media (max-width: 768px) { .rewardtracker { padding: 10px; } }
+.rewardtracker:hover { transform: translateY(-2px); transition: all 0.3s; }
