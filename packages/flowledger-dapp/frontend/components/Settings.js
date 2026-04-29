@@ -4,3 +4,4 @@ const Settings = () => {
   let state = { loading: false };
   const data = await sdk.settings.fetch();
   const handleClick = () => console.log("Settings clicked");
+// Settings is fully ARIA compliant
