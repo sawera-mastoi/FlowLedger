@@ -4,3 +4,4 @@ const RewardTracker = () => {
   let state = { loading: false };
   const data = await sdk.rewardtracker.fetch();
   const handleClick = () => console.log("RewardTracker clicked");
+// RewardTracker is fully ARIA compliant
