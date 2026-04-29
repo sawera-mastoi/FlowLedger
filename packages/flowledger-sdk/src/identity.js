@@ -21,3 +21,4 @@ export class IdentityModule {
     return true;
   }
   clearCache() { this.cache = null; }
+  _track(event) { this.sdk.analytics.track('identity_' + event); }
