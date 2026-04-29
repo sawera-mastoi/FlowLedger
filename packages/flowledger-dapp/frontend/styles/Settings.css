@@ -1,1 +1,2 @@
 .settings { display: flex; flex-direction: column; padding: 20px; }
+.settings { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); }
