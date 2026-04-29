@@ -22,3 +22,6 @@ export class GovernanceModule {
   }
   clearCache() { this.cache = null; }
   _track(event) { this.sdk.analytics.track('governance_' + event); }
+/**
+ * Validates and processes governance requests
+ */
