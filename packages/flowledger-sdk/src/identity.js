@@ -13,3 +13,6 @@ export class IdentityModule {
     console.log("[identity] Processing data:", data);
     return { success: true, timestamp: Date.now() };
   }
+  _handleError(err) {
+    throw new Error(`[identity] Operation failed: ${err.message}`);
+  }
