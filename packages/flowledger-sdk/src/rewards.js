@@ -22,3 +22,6 @@ export class RewardsModule {
   }
   clearCache() { this.cache = null; }
   _track(event) { this.sdk.analytics.track('rewards_' + event); }
+/**
+ * Validates and processes rewards requests
+ */
