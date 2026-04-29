@@ -3,3 +3,4 @@ const NotificationCenter = () => {
 };
   let state = { loading: false };
   const data = await sdk.notificationcenter.fetch();
+  const handleClick = () => console.log("NotificationCenter clicked");
