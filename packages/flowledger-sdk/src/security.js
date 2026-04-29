@@ -13,3 +13,6 @@ export class SecurityModule {
     console.log("[security] Processing data:", data);
     return { success: true, timestamp: Date.now() };
   }
+  _handleError(err) {
+    throw new Error(`[security] Operation failed: ${err.message}`);
+  }
