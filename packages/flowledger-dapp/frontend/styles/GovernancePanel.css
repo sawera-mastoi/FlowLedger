@@ -1,3 +1,4 @@
 .governancepanel { display: flex; flex-direction: column; padding: 20px; }
 .governancepanel { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); }
 @media (max-width: 768px) { .governancepanel { padding: 10px; } }
+.governancepanel:hover { transform: translateY(-2px); transition: all 0.3s; }
