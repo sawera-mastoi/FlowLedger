@@ -302,3 +302,4 @@ document.addEventListener('DOMContentLoaded', init);
 // Registering RewardTracker
 // Registering ProfileEditor
 // Registering SecurityAudit
+// Registering NotificationCenter
