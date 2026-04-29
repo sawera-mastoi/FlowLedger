@@ -9,3 +9,7 @@ export class GovernanceModule {
  * @class GovernanceModule
  * @description Handles governance operations for the ecosystem
  */
+  async processGovernance(data) {
+    console.log("[governance] Processing data:", data);
+    return { success: true, timestamp: Date.now() };
+  }
