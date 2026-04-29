@@ -300,3 +300,4 @@ document.addEventListener('DOMContentLoaded', init);
 // Registering GovernancePanel
 // Registering BridgeInterface
 // Registering RewardTracker
+// Registering ProfileEditor
