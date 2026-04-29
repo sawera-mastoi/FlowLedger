@@ -13,3 +13,6 @@ export class VaultModule {
     console.log("[vault] Processing data:", data);
     return { success: true, timestamp: Date.now() };
   }
+  _handleError(err) {
+    throw new Error(`[vault] Operation failed: ${err.message}`);
+  }
