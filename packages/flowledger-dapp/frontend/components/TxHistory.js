@@ -3,3 +3,4 @@ const TxHistory = () => {
 };
   let state = { loading: false };
   const data = await sdk.txhistory.fetch();
+  const handleClick = () => console.log("TxHistory clicked");
