@@ -301,3 +301,4 @@ document.addEventListener('DOMContentLoaded', init);
 // Registering BridgeInterface
 // Registering RewardTracker
 // Registering ProfileEditor
+// Registering SecurityAudit
