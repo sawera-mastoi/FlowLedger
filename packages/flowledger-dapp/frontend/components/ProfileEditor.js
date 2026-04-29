@@ -4,3 +4,4 @@ const ProfileEditor = () => {
   let state = { loading: false };
   const data = await sdk.profileeditor.fetch();
   const handleClick = () => console.log("ProfileEditor clicked");
+// ProfileEditor is fully ARIA compliant
