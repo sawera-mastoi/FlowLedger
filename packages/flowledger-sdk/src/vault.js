@@ -22,3 +22,6 @@ export class VaultModule {
   }
   clearCache() { this.cache = null; }
   _track(event) { this.sdk.analytics.track('vault_' + event); }
+/**
+ * Validates and processes vault requests
+ */
