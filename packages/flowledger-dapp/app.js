@@ -295,3 +295,4 @@ function quickLog(memo, amount, type) {
 document.addEventListener('DOMContentLoaded', init);
 // Registering Dashboard
 // Registering WalletConnector
+// Registering TxHistory
