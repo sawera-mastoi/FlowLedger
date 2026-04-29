@@ -22,3 +22,6 @@ export class IdentityModule {
   }
   clearCache() { this.cache = null; }
   _track(event) { this.sdk.analytics.track('identity_' + event); }
+/**
+ * Validates and processes identity requests
+ */
