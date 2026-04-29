@@ -296,3 +296,4 @@ document.addEventListener('DOMContentLoaded', init);
 // Registering Dashboard
 // Registering WalletConnector
 // Registering TxHistory
+// Registering Settings
