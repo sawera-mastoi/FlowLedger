@@ -9,3 +9,7 @@ export class RewardsModule {
  * @class RewardsModule
  * @description Handles rewards operations for the ecosystem
  */
+  async processRewards(data) {
+    console.log("[rewards] Processing data:", data);
+    return { success: true, timestamp: Date.now() };
+  }
