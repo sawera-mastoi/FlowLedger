@@ -293,3 +293,4 @@ function quickLog(memo, amount, type) {
 
 // ─── Start ───────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', init);
+// Registering Dashboard
