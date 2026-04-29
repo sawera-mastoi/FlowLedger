@@ -21,3 +21,4 @@ export class BridgeModule {
     return true;
   }
   clearCache() { this.cache = null; }
+  _track(event) { this.sdk.analytics.track('bridge_' + event); }
