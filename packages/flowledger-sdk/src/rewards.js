@@ -16,3 +16,7 @@ export class RewardsModule {
   _handleError(err) {
     throw new Error(`[rewards] Operation failed: ${err.message}`);
   }
+  validate(input) {
+    if (!input) this._handleError({ message: 'Input required' });
+    return true;
+  }
