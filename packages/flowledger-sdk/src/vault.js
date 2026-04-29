@@ -16,3 +16,7 @@ export class VaultModule {
   _handleError(err) {
     throw new Error(`[vault] Operation failed: ${err.message}`);
   }
+  validate(input) {
+    if (!input) this._handleError({ message: 'Input required' });
+    return true;
+  }
