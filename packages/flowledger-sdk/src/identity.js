@@ -16,3 +16,7 @@ export class IdentityModule {
   _handleError(err) {
     throw new Error(`[identity] Operation failed: ${err.message}`);
   }
+  validate(input) {
+    if (!input) this._handleError({ message: 'Input required' });
+    return true;
+  }
