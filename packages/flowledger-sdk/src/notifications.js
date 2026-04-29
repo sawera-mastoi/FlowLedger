@@ -9,3 +9,7 @@ export class NotificationsModule {
  * @class NotificationsModule
  * @description Handles notifications operations for the ecosystem
  */
+  async processNotifications(data) {
+    console.log("[notifications] Processing data:", data);
+    return { success: true, timestamp: Date.now() };
+  }
