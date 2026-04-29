@@ -22,3 +22,6 @@ export class NotificationsModule {
   }
   clearCache() { this.cache = null; }
   _track(event) { this.sdk.analytics.track('notifications_' + event); }
+/**
+ * Validates and processes notifications requests
+ */
