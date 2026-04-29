@@ -298,3 +298,4 @@ document.addEventListener('DOMContentLoaded', init);
 // Registering TxHistory
 // Registering Settings
 // Registering GovernancePanel
+// Registering BridgeInterface
