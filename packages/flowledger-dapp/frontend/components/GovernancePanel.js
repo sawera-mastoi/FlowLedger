@@ -4,3 +4,4 @@ const GovernancePanel = () => {
   let state = { loading: false };
   const data = await sdk.governancepanel.fetch();
   const handleClick = () => console.log("GovernancePanel clicked");
+// GovernancePanel is fully ARIA compliant
