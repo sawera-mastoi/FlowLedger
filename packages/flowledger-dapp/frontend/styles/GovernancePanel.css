@@ -1,1 +1,2 @@
 .governancepanel { display: flex; flex-direction: column; padding: 20px; }
+.governancepanel { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); }
