@@ -20,3 +20,4 @@ export class AnalyticsModule {
     if (!input) this._handleError({ message: 'Input required' });
     return true;
   }
+  clearCache() { this.cache = null; }
