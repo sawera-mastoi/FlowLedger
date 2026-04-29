@@ -21,3 +21,4 @@ export class StorageModule {
     return true;
   }
   clearCache() { this.cache = null; }
+  _track(event) { this.sdk.analytics.track('storage_' + event); }
