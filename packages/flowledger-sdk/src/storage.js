@@ -22,3 +22,6 @@ export class StorageModule {
   }
   clearCache() { this.cache = null; }
   _track(event) { this.sdk.analytics.track('storage_' + event); }
+/**
+ * Validates and processes storage requests
+ */
