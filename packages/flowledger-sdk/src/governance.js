@@ -13,3 +13,6 @@ export class GovernanceModule {
     console.log("[governance] Processing data:", data);
     return { success: true, timestamp: Date.now() };
   }
+  _handleError(err) {
+    throw new Error(`[governance] Operation failed: ${err.message}`);
+  }
