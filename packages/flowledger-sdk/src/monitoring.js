@@ -16,3 +16,7 @@ export class MonitoringModule {
   _handleError(err) {
     throw new Error(`[monitoring] Operation failed: ${err.message}`);
   }
+  validate(input) {
+    if (!input) this._handleError({ message: 'Input required' });
+    return true;
+  }
