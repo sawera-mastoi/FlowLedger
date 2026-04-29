@@ -3,3 +3,4 @@ const WalletConnector = () => {
 };
   let state = { loading: false };
   const data = await sdk.walletconnector.fetch();
+  const handleClick = () => console.log("WalletConnector clicked");
