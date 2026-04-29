@@ -22,3 +22,6 @@ export class AnalyticsModule {
   }
   clearCache() { this.cache = null; }
   _track(event) { this.sdk.analytics.track('analytics_' + event); }
+/**
+ * Validates and processes analytics requests
+ */
