@@ -3,3 +3,4 @@ const BridgeInterface = () => {
 };
   let state = { loading: false };
   const data = await sdk.bridgeinterface.fetch();
+  const handleClick = () => console.log("BridgeInterface clicked");
