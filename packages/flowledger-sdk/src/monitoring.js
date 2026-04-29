@@ -22,3 +22,6 @@ export class MonitoringModule {
   }
   clearCache() { this.cache = null; }
   _track(event) { this.sdk.analytics.track('monitoring_' + event); }
+/**
+ * Validates and processes monitoring requests
+ */
