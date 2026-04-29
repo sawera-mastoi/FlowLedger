@@ -13,3 +13,6 @@ export class BridgeModule {
     console.log("[bridge] Processing data:", data);
     return { success: true, timestamp: Date.now() };
   }
+  _handleError(err) {
+    throw new Error(`[bridge] Operation failed: ${err.message}`);
+  }
