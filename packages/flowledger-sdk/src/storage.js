@@ -13,3 +13,6 @@ export class StorageModule {
     console.log("[storage] Processing data:", data);
     return { success: true, timestamp: Date.now() };
   }
+  _handleError(err) {
+    throw new Error(`[storage] Operation failed: ${err.message}`);
+  }
