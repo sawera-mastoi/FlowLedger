@@ -13,3 +13,6 @@ export class RewardsModule {
     console.log("[rewards] Processing data:", data);
     return { success: true, timestamp: Date.now() };
   }
+  _handleError(err) {
+    throw new Error(`[rewards] Operation failed: ${err.message}`);
+  }
