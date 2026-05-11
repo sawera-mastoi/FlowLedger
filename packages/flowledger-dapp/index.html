@@ -2,500 +2,137 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="application-name" content="FlowLedger">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="FlowLedger Team">
-    <meta name="application-name" content="FlowLedger">
-    <meta name="application-name" content="FlowLedger">
-    <meta name="description" content="FlowLedger - A lightweight dApp to track daily financial activity with on-chain transparency powered by Stacks. Built for the Stacks April Builder Challenge on Talent Protocol.">
-    <meta name="talentapp:project_verification" content="b3ba88525b3698b8a6c3989d3506b74487a83d4ec22387c2435f66439aa962b0c8181e6038cdd34287f9b89eab2c3a606fbf1308b9ad81bbbe0de541506ce94c">
-    <meta name="theme-color" content="#FF5A1F">
-    <meta property="og:title" content="FlowLedger">
-    <meta property="og:description" content="Stacks daily transaction tracker">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://flowledger.app/">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="FlowLedger">
-    <title>FlowLedger | Daily Transaction Tracker</title>
+    <title>FlowLedger | The Next-Gen Financial Ecosystem on Stacks</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="apple-touch-icon" href="/public/logo.png">
-    <link rel="manifest" href="site.webmanifest">
+    <style>
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1.5rem;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 90, 31, 0.1) 0%, transparent 70%);
+        }
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+        }
+        .feature-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar" aria-label="Main Navigation">
+    <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <img src="public/logo.png" alt="FlowLedger Logo" class="nav-logo">
-                <span id="app-title">FlowLedger</span>
+                <img src="public/logo.png" alt="Logo" class="nav-logo">
+                <span>FlowLedger</span>
             </div>
-            <button id="connect-wallet" class="btn btn-primary">Connect Wallet</button>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="features.html">Features</a>
+                <a href="roadmap.html">Roadmap</a>
+                <a href="dashboard.html" class="btn btn-primary">Launch App</a>
+            </div>
         </div>
     </nav>
 
-    <main class="container" role="main">
-        <header class="dashboard-header" role="banner">
-            <div class="header-main">
-                <div>
-                    <h1 id="main-heading">Daily Ledger</h1>
-                    <p>Track your daily transactions on the Stacks blockchain.</p>
-                </div>
-                <div class="talent-link">
-                    <a href="https://talent.app" target="_blank" rel="noopener noreferrer" class="btn btn-outline">My Talent Profile</a>
-                </div>
-            </div>
-        </header>
-
-        <div class="stats-grid">
-            <div class="stats-card income">
-                <h3>Total Income</h3>
-                <p id="total-income">0 STX</p>
-            </div>
-            <div class="stats-card expense">
-                <h3>Total Expenses</h3>
-                <p id="total-expense">0 STX</p>
-            </div>
-            <div class="stats-card balance">
-                <h3>Current Balance</h3>
-                <p id="current-balance">0 STX</p>
-            </div>
-        </div>
-
-        <section class="main-grid">
-            <div class="form-section card">
-                <h2 id="form-title">Add Transaction</h2>
-                <form id="transaction-form" aria-label="Transaction Form">
-                    <div class="form-group">
-                        <label for="amount">Amount (STX)</label>
-                        <input type="number" id="amount" name="amount" step="0.000001" required placeholder="0.00">
-                    </div>
-                    <div class="form-group">
-                        <label for="memo">Memo</label>
-                        <input type="text" id="memo" name="memo" maxlength="50" required placeholder="Lunch, Coffee, Salary...">
-                    </div>
-                    <div class="form-group">
-                        <label for="tx-type">Type</label>
-                        <select id="tx-type" name="tx-type">
-                            <option value="income">Income</option>
-                            <option value="expense">Expense</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-submit">Submit Transaction</button>
-                </form>
-
-                <div class="quick-log">
-                    <h3>⚡ Quick Log</h3>
-                    <div class="quick-buttons">
-                        <button type="button" class="btn btn-quick" onclick="quickLog('Coffee', '0', 'expense')">☕ Coffee 0 STX</button>
-                        <button type="button" class="btn btn-quick" onclick="quickLog('Coffee', '2.5', 'expense')">☕ Coffee 2.5 STX</button>
-                        <button type="button" class="btn btn-quick" onclick="quickLog('Lunch', '8', 'expense')">🍔 Lunch 8 STX</button>
-                        <button type="button" class="btn btn-quick" onclick="quickLog('Transport', '5', 'expense')">🚕 Transport 5 STX</button>
-                        <button type="button" class="btn btn-quick" onclick="quickLog('Salary', '500', 'income')">💰 Salary 500 STX</button>
-                        <button type="button" class="btn btn-quick" onclick="quickLog('Freelance', '50', 'income')">💼 Freelance 50 STX</button>
-                        <button type="button" class="btn btn-quick" onclick="quickLog('Gift', '25', 'income')">🎁 Gift 25 STX</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="list-section card">
-                <h2 id="activity-title">Recent Activity</h2>
-                <div id="transaction-list" class="transaction-list" aria-live="polite">
-                    <p class="empty-msg">No transactions found. Connect wallet to view your activity.</p>
-                </div>
-            </div>
-
-            <div class="chart-section card">
-                <h2 id="chart-title">Spending Analytics & Insights</h2>
-                <canvas id="transaction-chart" aria-label="Transactions Chart" role="img" aria-label="Transactions Chart" role="img"></canvas>
-            </div>
-
-            <div class="lookup-section card">
-                <h2>🔍 Lookup On-Chain Transaction</h2>
-                <p class="lookup-desc">Read any transaction stored in the smart contract.</p>
-                <div class="form-group">
-                    <label for="lookup-address">Wallet Address</label>
-                    <input type="text" id="lookup-address" placeholder="SP3AMZ74TRAWC92ZB110E38SZB7F1T06EHZ38QMH4">
-                </div>
-                <div class="form-group">
-                    <label for="lookup-id">Transaction ID</label>
-                    <input type="number" id="lookup-id" placeholder="1" min="1">
-                </div>
-                <button class="btn btn-submit" onclick="lookupTransaction()">Lookup</button>
-                <div id="lookup-result" class="lookup-result"></div>
+    <main>
+        <section class="hero">
+            <h1>Financial Clarity <br> on Stacks</h1>
+            <p>Track, manage, and optimize your digital assets with the most advanced ledger system built for the Stacks ecosystem.</p>
+            <div class="hero-btns">
+                <a href="dashboard.html" class="btn btn-primary">Get Started Now</a>
+                <a href="about.html" class="btn btn-outline" style="margin-left: 1rem;">Learn More</a>
             </div>
         </section>
 
-        <section class="network-status card">
-            <h2>🌐 Stacks Network Status (Powered by Hiro)</h2>
-            <div class="status-grid">
-                <div class="status-item">
-                    <span class="status-label">Block Height:</span>
-                    <span id="block-height" class="status-value">Loading...</span>
-                </div>
-                <div class="status-item">
-                    <span class="status-label">Mempool Count:</span>
-                    <span id="mempool-count" class="status-value">Loading...</span>
-                </div>
-                <div class="status-item">
-                    <span class="status-label">Network Status:</span>
-                    <span id="network-reach" class="status-value">Loading...</span>
-                </div>
+        <section class="feature-showcase">
+            <div class="card">
+                <h2>On-Chain Transparency</h2>
+                <p>Every transaction is verified on the Stacks blockchain, ensuring immutable records and total trust.</p>
+            </div>
+            <div class="card">
+                <h2>Advanced Analytics</h2>
+                <p>Deep dive into your spending habits with real-time charts and AI-powered insights.</p>
+            </div>
+            <div class="card">
+                <h2>Multi-Wallet Support</h2>
+                <p>Seamlessly connect with Hiro, Xverse, and other leading Stacks wallets.</p>
             </div>
         </section>
 
-        <div class="contract-info card">
-            <h2>📜 Smart Contract</h2>
-            <p>This dApp is powered by a Clarity smart contract deployed on Stacks mainnet.</p>
-            <div class="contract-badge">
-                <span class="badge-label">Contract:</span>
-                <a href="https://explorer.hiro.so/txid/SP3AMZ74TRAWC92ZB110E38SZB7F1T06EHZ38QMH4.transactions-v2?chain=mainnet" target="_blank" rel="noopener noreferrer" class="badge-value">
-                    SP3AMZ...8QMH4.transactions-v2
-                </a>
-            </div>
-        </div>
+        <section class="container" style="text-align: center; padding: 4rem 0;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Ready to take control?</h2>
+            <p style="margin-bottom: 3rem; color: var(--text-muted);">Join thousands of users managing their crypto finances with FlowLedger.</p>
+            <a href="dashboard.html" class="btn btn-primary" style="padding: 1.5rem 3rem; font-size: 1.2rem;">Enter Dashboard</a>
+        </section>
     </main>
 
-    <footer class="footer" role="contentinfo">
-        <p>&copy; 2026 FlowLedger | Built for Stacks April on Talent Protocol</p>
+    <footer class="footer">
+        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: left; margin-bottom: 3rem;">
+            <div>
+                <h3>FlowLedger</h3>
+                <p>Building the future of finance on Stacks.</p>
+            </div>
+            <div>
+                <h4>Product</h4>
+                <a href="features.html">Features</a><br>
+                <a href="dashboard.html">Dashboard</a><br>
+                <a href="roadmap.html">Roadmap</a>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <a href="about.html">About Us</a><br>
+                <a href="contact.html">Contact</a><br>
+                <a href="faq.html">FAQ</a>
+            </div>
+            <div>
+                <h4>Legal</h4>
+                <a href="terms.html">Terms</a><br>
+                <a href="privacy.html">Privacy</a>
+            </div>
+        </div>
+        <p>&copy; 2026 FlowLedger | Built for Stacks May Project</p>
     </footer>
-
-    <!-- Chart.js for analytics -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- FlowLedger SDK -->
-    <script src="public/flowledger-sdk.js"></script>
-    <!-- FlowLedger App -->
-    <script src="app.js"></script>
 </body>
 </html>
-
-<!-- UI Enhancement #2 -->
-
-<!-- UI Enhancement #5 -->
-
-<!-- UI Enhancement #7 -->
-
-<!-- UI Enhancement #15 -->
-
-<!-- UI Enhancement #20 -->
-
-<!-- UI Enhancement #21 -->
-
-<!-- UI Enhancement #27 -->
-
-<!-- UI Enhancement #31 -->
-
-<!-- UI Enhancement #41 -->
-
-<!-- UI Enhancement #43 -->
-
-<!-- UI Enhancement #53 -->
-
-<!-- UI Enhancement #55 -->
-
-<!-- UI Enhancement #58 -->
-
-<!-- UI Enhancement #61 -->
-
-<!-- UI Enhancement #66 -->
-
-<!-- UI Enhancement #80 -->
-
-<!-- UI Enhancement #87 -->
-
-<!-- UI Enhancement #88 -->
-
-<!-- UI Enhancement #92 -->
-
-<!-- UI Enhancement #96 -->
-
-<!-- UI Enhancement #100 -->
-
-<!-- UI Enhancement #101 -->
-
-<!-- UI Enhancement #105 -->
-
-<!-- UI Enhancement #108 -->
-
-<!-- UI Enhancement #113 -->
-
-<!-- UI Enhancement #116 -->
-
-<!-- UI Enhancement #123 -->
-
-<!-- UI Enhancement #137 -->
-
-<!-- UI Enhancement #149 -->
-
-<!-- UI Enhancement #157 -->
-
-<!-- UI Enhancement #161 -->
-
-<!-- UI Enhancement #164 -->
-
-<!-- UI Enhancement #167 -->
-
-<!-- UI Enhancement #179 -->
-
-<!-- UI Enhancement #188 -->
-
-<!-- UI Enhancement #190 -->
-
-<!-- UI Enhancement #208 -->
-
-<!-- UI Enhancement #210 -->
-
-<!-- UI Enhancement #212 -->
-
-<!-- UI Enhancement #225 -->
-
-<!-- UI Enhancement #232 -->
-
-<!-- UI Enhancement #233 -->
-
-<!-- UI Enhancement #239 -->
-
-<!-- UI Enhancement #250 -->
-
-<!-- UI Enhancement #251 -->
-
-<!-- UI Enhancement #264 -->
-
-<!-- UI Enhancement #265 -->
-
-<!-- UI Enhancement #271 -->
-
-<!-- UI Enhancement #277 -->
-
-<!-- UI Enhancement #286 -->
-
-<!-- UI Enhancement #287 -->
-
-<!-- UI Enhancement #288 -->
-
-<!-- UI Enhancement #296 -->
-
-<!-- UI Enhancement #297 -->
-
-<!-- UI Enhancement #303 -->
-
-<!-- UI Enhancement #307 -->
-
-<!-- UI Enhancement #310 -->
-
-<!-- UI Enhancement #312 -->
-
-<!-- UI Enhancement #319 -->
-
-<!-- UI Enhancement #322 -->
-
-<!-- UI Enhancement #323 -->
-
-<!-- UI Enhancement #333 -->
-
-<!-- UI Enhancement #334 -->
-
-<!-- UI Enhancement #338 -->
-
-<!-- UI Enhancement #347 -->
-
-<!-- UI Enhancement #355 -->
-
-<!-- UI Enhancement #357 -->
-
-<!-- UI Enhancement #358 -->
-
-<!-- UI Enhancement #367 -->
-
-<!-- UI Enhancement #382 -->
-
-<!-- UI Enhancement #384 -->
-
-<!-- UI Enhancement #394 -->
-
-<!-- UI Enhancement #397 -->
-
-<!-- UI Enhancement #410 -->
-
-<!-- UI Enhancement #422 -->
-
-<!-- UI Enhancement #438 -->
-
-<!-- UI Enhancement #441 -->
-
-<!-- UI Enhancement #444 -->
-
-<!-- UI Enhancement #459 -->
-
-<!-- UI Enhancement #465 -->
-
-<!-- UI Enhancement #471 -->
-
-<!-- UI Enhancement #485 -->
-
-<!-- UI Enhancement #493 -->
-
-<!-- UI Enhancement #496 -->
-
-<!-- UI Enhancement #508 -->
-
-<!-- UI Enhancement #510 -->
-
-<!-- UI Enhancement #513 -->
-
-<!-- UI Enhancement #520 -->
-
-<!-- UI Enhancement #522 -->
-
-<!-- UI Enhancement #552 -->
-
-<!-- UI Enhancement #561 -->
-
-<!-- UI Enhancement #563 -->
-
-<!-- UI Enhancement #569 -->
-
-<!-- UI Enhancement #575 -->
-
-<!-- UI Enhancement #577 -->
-
-<!-- UI Enhancement #581 -->
-
-<!-- UI Enhancement #588 -->
-
-<!-- UI Enhancement #591 -->
-
-<!-- UI Enhancement #592 -->
-
-<!-- UI Enhancement #593 -->
-
-<!-- UI Enhancement #604 -->
-
-<!-- UI Enhancement #607 -->
-
-<!-- UI Enhancement #609 -->
-
-<!-- UI Enhancement #617 -->
-
-<!-- UI Enhancement #627 -->
-
-<!-- UI Enhancement #632 -->
-
-<!-- UI Enhancement #636 -->
-
-<!-- UI Enhancement #639 -->
-
-<!-- UI Enhancement #652 -->
-
-<!-- UI Enhancement #658 -->
-
-<!-- UI Enhancement #661 -->
-
-<!-- UI Enhancement #666 -->
-
-<!-- UI Enhancement #671 -->
-
-<!-- UI Enhancement #676 -->
-
-<!-- UI Enhancement #678 -->
-
-<!-- UI Enhancement #680 -->
-
-<!-- UI Enhancement #682 -->
-
-<!-- UI Enhancement #687 -->
-
-<!-- UI Enhancement #689 -->
-
-<!-- UI Enhancement #693 -->
-
-<!-- UI Enhancement #708 -->
-
-<!-- UI Enhancement #711 -->
-
-<!-- UI Enhancement #715 -->
-
-<!-- UI Enhancement #721 -->
-
-<!-- UI Enhancement #731 -->
-
-<!-- UI Enhancement #733 -->
-
-<!-- UI Enhancement #736 -->
-
-<!-- UI Enhancement #740 -->
-
-<!-- UI Enhancement #756 -->
-
-<!-- UI Enhancement #765 -->
-
-<!-- UI Enhancement #766 -->
-
-<!-- UI Enhancement #770 -->
-
-<!-- UI Enhancement #774 -->
-
-<!-- UI Enhancement #780 -->
-
-<!-- UI Enhancement #799 -->
-
-<!-- UI Enhancement #805 -->
-
-<!-- UI Enhancement #811 -->
-
-<!-- UI Enhancement #822 -->
-
-<!-- UI Enhancement #827 -->
-
-<!-- UI Enhancement #835 -->
-
-<!-- UI Enhancement #836 -->
-
-<!-- UI Enhancement #863 -->
-
-<!-- UI Enhancement #868 -->
-
-<!-- UI Enhancement #871 -->
-
-<!-- UI Enhancement #874 -->
-
-<!-- UI Enhancement #881 -->
-
-<!-- UI Enhancement #882 -->
-
-<!-- UI Enhancement #900 -->
-
-<!-- UI Enhancement #902 -->
-
-<!-- UI Enhancement #917 -->
-
-<!-- UI Enhancement #920 -->
-
-<!-- UI Enhancement #926 -->
-
-<!-- UI Enhancement #934 -->
-
-<!-- UI Enhancement #935 -->
-
-<!-- UI Enhancement #937 -->
-
-<!-- UI Enhancement #942 -->
-
-<!-- UI Enhancement #943 -->
-
-<!-- UI Enhancement #948 -->
-
-<!-- UI Enhancement #949 -->
-
-<!-- UI Enhancement #950 -->
-
-<!-- UI Enhancement #961 -->
-
-<!-- UI Enhancement #980 -->
-
-<!-- UI Enhancement #982 -->
-
-<!-- UI Enhancement #984 -->
-
-<!-- UI Enhancement #988 -->
+<!-- New Thing 1 -->
+<!-- Section 1 -->
+<!-- Section 2 -->
+<!-- 10 Pages Launch -->
+<!-- Perf -->
