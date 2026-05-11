@@ -336,9 +336,9 @@ All contracts are written in **Clarity**, the decidable smart contract language 
 
 ---
 
-## Stacks April Event Requirements
+## Stacks May Event Requirements
 
-To participate in the Stacks April event on Talent Protocol, ensure you meet the following:
+To participate in the Stacks May event on Talent Protocol, ensure you meet the following:
 
 *   **Wallet Connection:** Connect a Bitcoin L2 (Stacks-compatible) wallet to [talent.app](https://talent.app).
 *   **On-Chain Activity:** Rewards are often based on verified on-chain contributions (smart contract deployments, transaction volume, etc.).
@@ -384,7 +384,7 @@ This project is licensed under the MIT License — see [LICENSE](LICENSE) for de
 
 ---
 
-*Built for the Stacks April Builder Challenge on Talent Protocol. 🚀*
+*Built for the Stacks May Project on Talent Protocol. 🚀*
 
 **Published NPM Packages:**
 - 📦 [flowledger-dapp](https://www.npmjs.com/package/flowledger-dapp) — Full DApp package
@@ -715,3 +715,6 @@ This project is licensed under the MIT License — see [LICENSE](LICENSE) for de
 <!-- Documentation update #993 -->
 
 <!-- Documentation update #1000 -->
+## Stacks May Update
+
+### Evolution Complete
