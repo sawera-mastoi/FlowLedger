@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FlowLedger Dashboard - Manage your Stacks May Project transactions.">
+    <title>FlowLedger | Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar" aria-label="Main Navigation">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="public/logo.png" alt="FlowLedger Logo" class="nav-logo">
+                <span id="app-title">FlowLedger</span>
+            </div>
+            <div style="display: flex; gap: 1.5rem; align-items: center;">
+                <a href="index.html" style="color: white; text-decoration: none; font-weight: 600;">Home</a>
+                <button id="connect-wallet" class="btn btn-primary">Connect Wallet</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" role="main">
+        <header class="dashboard-header" role="banner">
+            <div class="header-main">
+                <div>
+                    <h1 id="main-heading">Project Dashboard</h1>
+                    <p>Manage your Stacks May Project transactions with on-chain transparency.</p>
+                </div>
+                <div class="talent-link">
+                    <a href="https://talent.app" target="_blank" rel="noopener noreferrer" class="btn btn-outline">My Talent Profile</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stats-card income">
+                <h3>Total Income</h3>
+                <p id="total-income">0 STX</p>
+            </div>
+            <div class="stats-card expense">
+                <h3>Total Expenses</h3>
+                <p id="total-expense">0 STX</p>
+            </div>
+            <div class="stats-card balance">
+                <h3>Current Balance</h3>
+                <p id="current-balance">0 STX</p>
+            </div>
+            <div class="stats-card budget">
+                <h3>May Budget</h3>
+                <p id="monthly-budget">500 STX</p>
+                <div style="height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; margin-top: 0.5rem; overflow: hidden;">
+                    <div id="budget-progress" style="width: 45%; height: 100%; background: var(--primary-gradient);"></div>
+                </div>
+            </div>
+        </div>
+
+        <section class="main-grid">
+            <div class="form-section card">
+                <h2 id="form-title">Add Transaction</h2>
+                <form id="transaction-form" aria-label="Transaction Form">
+                    <div class="form-group">
+                        <label for="amount">Amount (STX)</label>
+                        <input type="number" id="amount" name="amount" step="0.000001" required placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label for="memo">Memo</label>
+                        <input type="text" id="memo" name="memo" maxlength="50" required placeholder="Lunch, Coffee, Salary...">
+                    </div>
+                    <div class="form-group">
+                        <label for="tx-type">Type</label>
+                        <select id="tx-type" name="tx-type">
+                            <option value="income">Income</option>
+                            <option value="expense">Expense</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-submit">Submit Transaction</button>
+                </form>
+
+                <div class="quick-log" style="margin-top: 1.5rem;">
+                    <h3>⚡ Quick Log</h3>
+                    <div class="quick-buttons">
+                        <button type="button" class="btn btn-quick" onclick="quickLog('Coffee', '2.5', 'expense')">☕ Coffee</button>
+                        <button type="button" class="btn btn-quick" onclick="quickLog('Lunch', '8', 'expense')">🍔 Lunch</button>
+                        <button type="button" class="btn btn-quick" onclick="quickLog('Salary', '500', 'income')">💰 Salary</button>
+                        <button type="button" class="btn btn-quick" onclick="quickLog('Gift', '25', 'income')">🎁 Gift</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="list-section card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <h2 id="activity-title" style="margin-bottom: 0;">Recent Activity</h2>
+                    <button class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.8rem;" onclick="exportCSV()">Export CSV</button>
+                </div>
+                <div id="transaction-list" class="transaction-list" aria-live="polite">
+                    <p class="empty-msg">No transactions found. Connect wallet to view your activity.</p>
+                </div>
+            </div>
+
+            <div class="chart-section card">
+                <h2 id="chart-title">Spending Analytics</h2>
+                <canvas id="transaction-chart" aria-label="Transactions Chart" role="img"></canvas>
+            </div>
+
+            <div class="lookup-section card">
+                <h2>🔍 On-Chain Lookup</h2>
+                <div class="form-group">
+                    <label for="lookup-address">Wallet Address</label>
+                    <input type="text" id="lookup-address" placeholder="SP3A...">
+                </div>
+                <div class="form-group">
+                    <label for="lookup-id">Tx ID</label>
+                    <input type="number" id="lookup-id" placeholder="1">
+                </div>
+                <button class="btn btn-submit" onclick="lookupTransaction()">Lookup</button>
+                <div id="lookup-result" class="lookup-result"></div>
+            </div>
+        </section>
+
+        <section class="network-status card">
+            <h2>🌐 Stacks Network Status</h2>
+            <div class="status-grid">
+                <div class="status-item">
+                    <span class="status-label">Block Height:</span>
+                    <span id="block-height" class="status-value">Loading...</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Mempool Count:</span>
+                    <span id="mempool-count" class="status-value">Loading...</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Network Status:</span>
+                    <span id="network-reach" class="status-value">Online</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 FlowLedger | Built for Stacks May Project</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="public/flowledger-sdk.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
