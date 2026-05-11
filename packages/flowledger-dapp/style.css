@@ -2,17 +2,19 @@
 :root {
     --z-index-nav: 100;
     --primary: #FF5A1F;
-    --primary-dark: #E14F1B;
+    --primary-gradient: linear-gradient(135deg, #FF5A1F 0%, #FF8E64 100%);
     --secondary: #0C1014;
     --accent: #FFD4C2;
-    --bg: #F8FAFC;
-    --card-bg: #FFFFFF;
-    --text: #1E293B;
-    --text-muted: #64748B;
+    --bg: #0F172A;
+    --card-bg: rgba(30, 41, 59, 0.7);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --text: #F8FAFC;
+    --text-muted: #94A3B8;
     --income-color: #10B981;
-    --expense-color: #EF4444;
-    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --radius: 12px;
+    --expense-color: #F43F5E;
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --glass: blur(12px);
+    --radius: 16px;
 }
 
 html {
@@ -20,25 +22,6 @@ html {
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-  --primary: #FF5A1F;
-  --bg: #0B0E14;
-}
-body {
-    font-family: 'Outfit', sans-serif;
-    background-color: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-}
-
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
     padding: 1rem 1.5rem;
 }
 
@@ -333,10 +316,19 @@ body {
 
 .card {
     background: var(--card-bg);
+    backdrop-filter: var(--glass);
+    -webkit-backdrop-filter: var(--glass);
     padding: 1.5rem;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-    border: 1px solid #F1F5F9;
+    border: 1px solid var(--card-border);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 90, 31, 0.3);
 }
 
 .card h2 {
@@ -947,3 +939,6 @@ input:user-valid { border-color: var(--income-color); }
 
 /* Visual Tweak #986 */
 .tweak-986 { opacity: 1; }
+/* UI Improvement 1 */
+/* UX Fix 1 */
+/* Global Styling */
